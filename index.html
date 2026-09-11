@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TAQWA X1 - The Sovereign AI</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;700&display=swap');
+body{font-family:'Space Grotesk',sans-serif;background:#050505;color:#fff}
+.glow{box-shadow:0 0 20px rgba(0,255,136,0.3)}
+</style>
+</head>
+<body class="min-h-screen flex flex-col">
+<header class="p-6 border-b border-green-500/20 flex justify-between items-center">
+<h1 class="text-2xl font-bold">TAQWA <span class="text-green-400">X1</span></h1>
+<div class="text-xs px-3 py-1 bg-green-500/20 rounded-full text-green-400">● LIVE</div>
+</header>
+<div id="chat" class="flex-1 p-6 space-y-4 overflow-y-auto">
+<div class="bg-zinc-900 p-4 rounded-xl border border-green-500/30">
+<p class="text-green-400 text-sm">TAQWA X1:</p>
+<p>As-salamu Alaikum! I am TAQWA X1, built by NeuroGripX. How can I help you today? MashaAllah!</p>
+</div>
+</div>
+<div class="p-6 border-t border-zinc-800">
+<div class="flex gap-3 max-w-4xl mx-auto">
+<input id="input" class="flex-1 bg-zinc-900 border border-zinc-700 rounded-xl px-4 py-3 outline-none focus:border-green-500" placeholder="Ask TAQWA X1 anything...">
+<button onclick="send()" class="bg-green-500 text-black px-8 py-3 rounded-xl font-bold hover:bg-green-400">Send</button>
+</div>
+<p class="text-center text-xs text-zinc-500 mt-3">Engine: taqwa-x1-engine.onrender.com • Powered by NeuroGripX</p>
+</div>
+<script>
+const BACKEND = "https://taqwa-x1-engine.onrender.com";
+const chat = document.getElementById('chat');
+const input = document.getElementById('input');
+async function send(){
+ const msg = input.value.trim(); if(!msg) return;
+ chat.innerHTML += `<div class='bg-green-500/10 p-4 rounded-xl ml-auto max-w-[80%]'><p class='text-xs text-zinc-400'>YOU:</p><p>${msg}</p></div>`;
+ input.value = "";
+ chat.innerHTML += `<div id='loading' class='bg-zinc-900 p-4 rounded-xl'><p class='text-green-400 text-sm animate-pulse'>TAQWA X1 is thinking...</p></div>`;
+ chat.scrollTop = chat.scrollHeight;
+ try{
+  const res = await fetch(`${BACKEND}/chat`, {method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify({message: msg})});
+  const data = await res.json();
+  document.getElementById('loading').remove();
+  chat.innerHTML += `<div class='bg-zinc-900 p-4 rounded-xl border border-green-500/30'><p class='text-green-400 text-sm'>TAQWA X1:</p><p>${data.reply || data.response || 'Alhamdulillah, I received your message!'}</p></div>`;
+ }catch(e){
+  document.getElementById('loading').remove();
+  chat.innerHTML += `<div class='bg-zinc-900 p-4 rounded-xl border border-red-500/30'><p class='text-red-400 text-sm'>Error:</p><p>Engine is waking up (Render takes 30 sec first time). Please try again!</p></div>`;
+ }
+ chat.scrollTop = chat.scrollHeight;
+}
+input.addEventListener('keypress', e=>{ if(e.key==='Enter') send() });
+</script>
+</body>
+</html>
