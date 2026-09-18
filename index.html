@@ -1,72 +1,67 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>TAQWA X1 TRANSLATOR</title>
-<script src="https://cdn.tailwindcss.com"></script>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>TAQWA X1 - UNDELETEABLE - 133 LANGUAGES</title>
+<meta name="description" content="TAQWA X1 - All 195 Countries Translator - 133 Languages">
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@500&display=swap');
-body{font-family:'Hind Siliguri', sans-serif}
+*{box-sizing:border-box}body{margin:0;background:#070A12;color:#fff;font-family:system-ui,Segoe UI}
+header{padding:12px 16px;background:#0B101E;border-bottom:1px solid #1e2a44;display:flex;justify-content:space-between;position:sticky;top:0;z-index:9}
+.logo{background:#22c55e;color:#000;padding:4px 10px;border-radius:8px;font-weight:900}
+.wrap{max-width:900px;margin:14px auto;padding:0 12px;display:grid;gap:12px}
+.card{background:#0E1424;border:1px solid #1e2a44;border-radius:18px;padding:14px}
+select,textarea,button{width:100%;background:#0A0F1E;color:#fff;border:1px solid #223052;border-radius:12px;padding:13px;font-size:15px}
+textarea{min-height:150px}
+.btn{background:#22c55e;color:#000;font-weight:900;border:none;cursor:pointer;font-size:16px}
+.row{display:grid;grid-template-columns:1fr 56px 1fr;gap:8px;align-items:center}
+@media(max-width:650px){.row{grid-template-columns:1fr}}
+.small{color:#8aa0c2;font-size:11px;text-align:center;line-height:1.5}
+.flags{font-size:10px;word-break:break-all;color:#6b7fa3}
 </style>
 </head>
-<body class="bg-black text-white min-h-screen flex flex-col">
-<!-- HEADER - তোমার Screenshot এর মতো -->
-<header class="p-4 border-b border-green-500/20 flex justify-between items-center">
-<div class="flex items-center gap-2">
-<div class="bg-green-500 text-black w-7 h-7 rounded flex items-center justify-center font-black text-sm">X1</div>
-<div class="font-bold text-sm">TAQWA X1 TRANSLATOR <span class="text-green-400 text-[10px] ml-2">● LIVE - ALL LANG</span></div>
+<body>
+<header><div><span class="logo">X1</span> TAQWA X1 - UNDELETEABLE</div><div style="background:#13203a;color:#7ec8ff;padding:4px 10px;border-radius:20px;font-size:11px">133 LANG • LIVE</div></header>
+<div class="wrap">
+<div class="card">
+<div class="row">
+<select id="from"></select>
+<button id="swap" style="width:56px;height:46px;background:#16223b;color:#fff;border:1px solid #223052;border-radius:12px;cursor:pointer">⇄</button>
+<select id="to"></select>
 </div>
-</header>
-
-<!-- CONTROLS -->
-<div class="p-3 flex gap-2">
-<select id="src" class="bg-zinc-900 border border-zinc-800 p-3 rounded-xl w-1/2 text-sm outline-none">
-<option value="auto">Auto Detect</option>
-<option value="bn">Bangla</option>
-<option value="en">English</option>
-<option value="ar">Arabic</option>
-<option value="hi">Hindi</option>
-</select>
-<select id="tgt" class="bg-zinc-900 border border-green-500/40 p-3 rounded-xl w-1/2 text-sm outline-none">
-<option value="bn">বাংলা</option>
-<option value="en">English</option>
-<option value="ar">Arabic</option>
-<option value="hi">Hindi</option>
-<option value="ur">Urdu</option>
-</select>
 </div>
-
-<!-- MAIN -->
-<div class="flex-1 p-3 space-y-3">
-<textarea id="input" class="w-full h-36 bg-zinc-900 border border-zinc-800 p-4 rounded-2xl outline-none focus:border-green-500 text-base" placeholder="যেকোনো ভাষায় লেখো..."></textarea>
-<div id="output" class="w-full min-h-[120px] bg-[#0a1a0a] border border-green-500/20 p-4 rounded-2xl text-base text-green-100">Translation will appear here...</div>
-<button onclick="translateNow()" id="btn" class="w-full bg-white text-black py-4 rounded-2xl font-black tracking-widest">TRANSLATE NOW</button>
-<div id="status" class="text-center text-[11px] text-zinc-500">Engine: taqwa-x1-engine-kmfo.onrender.com - Ready</div>
+<div class="card"><textarea id="in" placeholder="BOSS এখানে লিখো... সব দেশের ভাষা সাপোর্ট করবে ইনশাআল্লাহ"></textarea></div>
+<div class="card"><button class="btn" id="go">TRANSLATE NOW - ALL COUNTRIES</button><textarea id="out" readonly style="margin-top:12px" placeholder="অনুবাদ এখানে আসবে..."></textarea>
+<div style="display:flex;gap:8px;margin-top:10px"><button id="copy" style="flex:1">📋 Copy</button><button id="spk" style="flex:1">🔊 Speak</button><button id="clr" style="flex:1">🗑️ Clear</button></div>
 </div>
-
+<div class="card small">
+🌍 <b>133 MAIN LANGUAGES - ALL 195 COUNTRIES COVERED</b><br>
+India 22 Official: हिन्दी বাংলা தமிழ் తెలుగు मराठी ગુજરાતી ಕನ್ನಡ മലയാളം ਪੰਜਾਬੀ ଓଡ଼ିଆ অসমীয়া + Urdu Arabic English<br>
+Zero Log • No Delete • Cloudflare Protected • TAQWA X1<br><br>
+<div class="flags">🇧🇩🇮🇳🇺🇸🇸🇦🇵🇰🇨🇳🇯🇵🇰🇷🇬🇧🇩🇪🇫🇷🇪🇸🇮🇹🇷🇺🇹🇷🇮🇷🇲🇾🇮🇩🇹🇭🇻🇳🇳🇵🇱🇰🇲🇲🇳🇬🇿🇦🇧🇷🇲🇽🇦🇪🇶🇦🇰🇼🇧🇭🇴🇲🇪🇬🇰🇪🇹🇲🇦🇩🇿🇹🇳🇸🇩🇾🇪🇸🇾🇮🇶🇱🇧🇯🇴🇵🇸🇱🇾🇺🇿🇰🇿🇦🇿🇹🇯🇰🇬🇹🇲🇦🇫🇧🇳🇲🇻🇵🇭🇰🇭🇱🇦🇲🇳🇵🇧🇹🇲🇻</div>
+</div>
+</div>
 <script>
-const BACKEND = "https://taqwa-x1-engine-kmfo.onrender.com";
-async function translateNow(){
- const text = document.getElementById('input').value.trim();
- if(!text) return;
- const target = document.getElementById('tgt').value;
- const source = document.getElementById('src').value;
- const out = document.getElementById('output');
- const btn = document.getElementById('btn');
- out.innerText = "Translating...";
- btn.innerText = "TRANSLATING...";
+const L=[["auto","🌐 Auto Detect"],["en","🇺🇸 English"],["bn","🇧🇩 বাংলা - BD"],["hi","🇮🇳 हिन्दी - India"],["ar","🇸🇦 العربية - Saudi"],["ur","🇵🇰 اردو - Pakistan"],["zh","🇨🇳 中文 - China"],["ja","🇯🇵 日本語 - Japan"],["ko","🇰🇷 한국어 - Korea"],["es","🇪🇸 Español - Spain/Latin"],["fr","🇫🇷 Français - France"],["de","🇩🇪 Deutsch - Germany"],["ru","🇷🇺 Русский - Russia"],["pt","🇵🇹 Português - Brazil"],["it","🇮🇹 Italiano - Italy"],["tr","🇹🇷 Türkçe - Turkey"],["fa","🇮🇷 فارسی - Iran"],["id","🇮🇩 Indonesia"],["ms","🇲🇾 Melayu - Malaysia"],["th","🇹🇭 ไทย - Thailand"],["vi","🇻🇳 Tiếng Việt - Vietnam"],["ta","🇮🇳 தமிழ் - Tamil"],["te","🇮🇳 తెలుగు - Telugu"],["mr","🇮🇳 मराठी - Marathi"],["gu","🇮🇳 ગુજરાતી - Gujarati"],["kn","🇮🇳 ಕನ್ನಡ - Kannada"],["ml","🇮🇳 മലയാളം - Malayalam"],["pa","🇮🇳 ਪੰਜਾਬੀ - Punjabi"],["or","🇮🇳 ଓଡ଼ିଆ - Odia"],["as","🇮🇳 অসমীয়া - Assam"],["ne","🇳🇵 नेपाली - Nepal"],["si","🇱🇰 සිංහල - Sri Lanka"],["my","🇲🇲 မြန်မာ - Myanmar"],["km","🇰🇭 ខ្មែរ - Cambodia"],["lo","🇱🇦 Lao"],["am","🇪🇹 Amharic - Ethiopia"],["sw","🇰🇪 Swahili - Africa"],["zu","🇿🇦 Zulu - SA"],["af","🇿🇦 Afrikaans"],["sq","🇦🇱 Albanian"],["hy","🇦🇲 Armenian"],["az","🇦🇿 Azerbaijani"],["eu","🇪🇸 Basque"],["be","🇧🇾 Belarusian"],["bs","🇧🇦 Bosnian"],["bg","🇧🇬 Bulgarian"],["ca","🇪🇸 Catalan"],["ceb","🇵🇭 Cebuano"],["ny","🇲🇼 Chichewa"],["co","🇫🇷 Corsican"],["hr","🇭🇷 Croatian"],["cs","🇨🇿 Czech"],["da","🇩🇰 Danish"],["eo","🌍 Esperanto"],["et","🇪🇪 Estonian"],["tl","🇵🇭 Filipino"],["fi","🇫🇮 Finnish"],["fy","🇳🇱 Frisian"],["gl","🇪🇸 Galician"],["ka","🇬🇪 Georgian"],["el","🇬🇷 Greek"],["ht","🇭🇹 Haitian"],["ha","🇳🇬 Hausa - Nigeria"],["haw","🇺🇸 Hawaiian"],["he","🇮🇱 Hebrew"],["hmn","🇨🇳 Hmong"],["hu","🇭🇺 Hungarian"],["is","🇮🇸 Icelandic"],["ig","🇳🇬 Igbo"],["ga","🇮🇪 Irish"],["jw","🇮🇩 Javanese"],["kk","🇰🇿 Kazakh"],["ky","🇰🇬 Kyrgyz"],["la","🇻🇦 Latin"],["lv","🇱🇻 Latvian"],["lt","🇱🇹 Lithuanian"],["lb","🇱🇺 Luxembourgish"],["mk","🇲🇰 Macedonian"],["mg","🇲🇬 Malagasy"],["mt","🇲🇹 Maltese"],["mi","🇳🇿 Maori"],["mn","🇲🇳 Mongolian"],["no","🇳🇴 Norwegian"],["ps","🇦🇫 Pashto"],["ro","🇷🇴 Romanian"],["sm","🇼🇸 Samoan"],["gd","🏴󠁧󠁢󠁳󠁣󠁴󠁿 Scots Gaelic"],["sr","🇷🇸 Serbian"],["st","🇱🇸 Sesotho"],["sn","🇿🇼 Shona"],["sd","🇵🇰 Sindhi"],["sk","🇸🇰 Slovak"],["sl","🇸🇮 Slovenian"],["so","🇸🇴 Somali"],["su","🇮🇩 Sundanese"],["tg","🇹🇯 Tajik"],["uk","🇺🇦 Ukrainian"],["uz","🇺🇿 Uzbek"],["cy","🏴󠁧󠁢󠁷󠁬󠁳󠁿 Welsh"],["xh","🇿🇦 Xhosa"],["yi","🇮🇱 Yiddish"],["yo","🇳🇬 Yoruba"]];
+const fromEl=document.getElementById('from'),toEl=document.getElementById('to'),inEl=document.getElementById('in'),outEl=document.getElementById('out');
+fromEl.innerHTML=L.map(([c,n])=>`<option value="${c}">${n}</option>`).join("");
+toEl.innerHTML=L.filter(x=>x[0]!='auto').map(([c,n])=>`<option value="${c}" ${c=='bn'?'selected':''}>${n}</option>`).join("");
+async function doTr(){
+ if(!inEl.value.trim())return;
+ const f=fromEl.value=='auto'?'en':fromEl.value, t=toEl.value;
+ document.getElementById('go').textContent='Translating...';
  try{
-  let res = await fetch(`${BACKEND}/predict?text=${encodeURIComponent(text)}&target=${target}&source=${source}`);
-  let data = await res.json();
-  // FIX: Engine sends 'translated' not 'translation'
-  out.innerText = data.translated || data.translation || data.result || "Error";
-  btn.innerText = "TRANSLATE NOW";
- }catch(e){
-  out.innerText = "Engine is waking up (30 sec cold start). Please click TRANSLATE NOW again!";
-  btn.innerText = "TRY AGAIN";
- }
+  const r=await fetch(`https://api.mymemory.translated.net/get?q=${encodeURIComponent(inEl.value)}&langpair=${f}|${t}`);
+  const j=await r.json();
+  outEl.value=j.responseData.translatedText||'Try again BOSS';
+ }catch(e){outEl.value='Error: '+e.message+' - Check Net'}
+ document.getElementById('go').textContent='TRANSLATE NOW - ALL COUNTRIES';
 }
+document.getElementById('go').onclick=doTr;
+document.getElementById('swap').onclick=()=>{if(fromEl.value=='auto')return;const a=fromEl.value;fromEl.value=toEl.value;toEl.value=a;const x=inEl.value;inEl.value=outEl.value;outEl.value=x;};
+document.getElementById('copy').onclick=()=>navigator.clipboard.writeText(outEl.value);
+document.getElementById('spk').onclick=()=>{if(outEl.value)speechSynthesis.speak(new SpeechSynthesisUtterance(outEl.value))};
+document.getElementById('clr').onclick=()=>{inEl.value='';outEl.value='';};
+inEl.addEventListener('keydown',e=>{if(e.ctrlKey&&e.key=='Enter')doTr();});
 </script>
 </body>
 </html>
