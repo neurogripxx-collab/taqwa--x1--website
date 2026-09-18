@@ -2,44 +2,78 @@
 <html lang="bn">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
 <title>AZAD AI WORLD - 195 দেশ</title>
 <style>
 body{background:#000;color:#fff;font-family:system-ui;padding:8px;text-align:center}
-.card{background:#111;border:3px solid #00ff88;border-radius:20px;padding:15px;max-width:950px;margin:auto;box-shadow:0 0 30px #00ff8855}
-button{background:#00ff88;color:#000;border:none;padding:13px 18px;border-radius:12px;font-weight:bold;margin:6px;cursor:pointer;font-size:15px}
-.flag-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(75px,1fr));gap:6px;margin:12px 0;max-height:400px;overflow-y:auto;background:#050505;padding:12px;border-radius:12px;border:1px solid #333}
-.flag-item{background:#1f1f1f;padding:6px 2px;border-radius:8px;font-size:10px;cursor:pointer;border:1px solid #2a2a2a;line-height:1.2}
-.flag-item:hover{background:#00ff88;color:#000;transform:scale(1.1);font-weight:bold}
+.card{background:#111;border:3px solid #00ff88;border-radius:20px;padding:15px;max-width:950px;margin:auto}
+button{background:#00ff88;color:#000;border:none;padding:12px 16px;border-radius:12px;font-weight:bold;margin:5px;cursor:pointer}
+.flag-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(75px,1fr));gap:6px;max-height:400px;overflow-y:auto;background:#050505;padding:10px;border-radius:12px}
+.flag-item{background:#1f1f1f;padding:6px 2px;border-radius:8px;font-size:10px;cursor:pointer;border:1px solid #333}
+.flag-item:hover{background:#00ff88;color:#000;transform:scale(1.1)}
 textarea,select{width:98%;padding:12px;border-radius:10px;border:1px solid #333;background:#222;color:#fff;margin:8px 0}
 .book{border:2px dashed #00ff88;padding:10px;border-radius:12px;background:#0a0a0a}
-h1{color:#00ff88;text-shadow:0 0 15px #00ff88}
+h1{color:#00ff88}
 </style>
 </head>
 <body>
 <h1>🚀 AZAD AI WORLD</h1>
-<p>🌍 বিশ্বের 195 দেশের পতাকা | 📚 বই | 🗣️ কথা | সকল দেশের জন্য</p>
+<p>🌍 195 দেশের পতাকা | 📚 বই | 🗣️ কথা | সকল দেশের জন্য</p>
 <div class="card">
 <div class="book"><b>📚 বই Upload</b> <input type="file" id="bookFile" accept=".txt"></div>
-<p style="color:#00ff88;font-weight:bold">👇 195 দেশের পতাকা - ক্লিক করো দুস্ত:</p>
+<p style="color:#00ff88;font-weight:bold">👇 195 দেশ - ক্লিক করো:</p>
 <div class="flag-grid" id="flagGrid"></div>
-<select id="lang" style="font-size:16px;border:2px solid #00ff88"></select>
+<select id="lang" style="border:2px solid #00ff88"></select>
 <textarea id="in" rows="4" placeholder="দুস্ত এখানে লেখো বা বই Upload করো..."></textarea>
-<button onclick="tr()">🌍 TRANSLATE - WORLD</button>
-<textarea id="out" rows="5" placeholder="অনুবাদ এখানে আসবে..." readonly></textarea>
+<button onclick="tr()">🌍 TRANSLATE WORLD</button>
+<textarea id="out" rows="5" placeholder="অনুবাদ এখানে..." readonly></textarea>
 <div><button onclick="spk()">🗣️ কথা শুনো</button><button onclick="stop()">🔇 STOP</button><button onclick="copyT()">📋 COPY</button></div>
-<p style="font-size:9px;color:#555;margin-top:10px">195 Countries - All Flags - World Version - No Single Country - For All Humanity</p>
 </div>
 <script>
 const world=[
-["bn","🇧🇩","Bangladesh"],["en","🇺🇸","USA"],["in","🇮🇳","India"],["pk","🇵🇰","Pakistan"],["sa","🇸🇦","Saudi"],["ae","🇦🇪","UAE"],["gb","🇬🇧","UK"],["ca","🇨🇦","Canada"],["au","🇦🇺","Australia"],["de","🇩🇪","Germany"],
+["bd","🇧🇩","Bangladesh"],["us","🇺🇸","USA"],["in","🇮🇳","India"],["pk","🇵🇰","Pakistan"],["sa","🇸🇦","Saudi"],["ae","🇦🇪","UAE"],["gb","🇬🇧","UK"],["ca","🇨🇦","Canada"],["au","🇦🇺","Australia"],["de","🇩🇪","Germany"],
 ["fr","🇫🇷","France"],["it","🇮🇹","Italy"],["es","🇪🇸","Spain"],["jp","🇯🇵","Japan"],["cn","🇨🇳","China"],["kr","🇰🇷","Korea"],["ru","🇷🇺","Russia"],["tr","🇹🇷","Turkey"],["ir","🇮🇷","Iran"],["br","🇧🇷","Brazil"],
-["af","🇦🇫","Afghanistan"],["al","🇦🇱","Albania"],["dz","🇩🇿","Algeria"],["ad","🇦🇩","Andorra"],["ao","🇦🇴","Angola"],["ag","🇦🇬","Antigua"],["ar","🇦🇷","Argentina"],["am","🇦🇲","Armenia"],["at","🇦🇹","Austria"],["az","🇦🇿","Azerbaijan"],
+["af","🇦🇫","Afghan"],["al","🇦🇱","Albania"],["dz","🇩🇿","Algeria"],["ad","🇦🇩","Andorra"],["ao","🇦🇴","Angola"],["ag","🇦🇬","Antigua"],["ar","🇦🇷","Argentina"],["am","🇦🇲","Armenia"],["at","🇦🇹","Austria"],["az","🇦🇿","Azerbaijan"],
 ["bs","🇧🇸","Bahamas"],["bh","🇧🇭","Bahrain"],["bb","🇧🇧","Barbados"],["by","🇧🇾","Belarus"],["be","🇧🇪","Belgium"],["bz","🇧🇿","Belize"],["bj","🇧🇯","Benin"],["bt","🇧🇹","Bhutan"],["bo","🇧🇴","Bolivia"],["ba","🇧🇦","Bosnia"],
 ["bw","🇧🇼","Botswana"],["bn2","🇧🇳","Brunei"],["bg","🇧🇬","Bulgaria"],["bf","🇧🇫","Burkina"],["bi","🇧🇮","Burundi"],["kh","🇰🇭","Cambodia"],["cm","🇨🇲","Cameroon"],["cv","🇨🇻","Cape Verde"],["cf","🇨🇫","CAR"],["td","🇹🇩","Chad"],
 ["cl","🇨🇱","Chile"],["co","🇨🇴","Colombia"],["km","🇰🇲","Comoros"],["cg","🇨🇬","Congo"],["cr","🇨🇷","Costa Rica"],["hr","🇭🇷","Croatia"],["cu","🇨🇺","Cuba"],["cy","🇨🇾","Cyprus"],["cz","🇨🇿","Czech"],["dk","🇩🇰","Denmark"],
 ["dj","🇩🇯","Djibouti"],["dm","🇩🇲","Dominica"],["do","🇩🇴","Dominican"],["ec","🇪🇨","Ecuador"],["eg","🇪🇬","Egypt"],["sv","🇸🇻","El Salvador"],["gq","🇬🇶","Equatorial"],["er","🇪🇷","Eritrea"],["ee","🇪🇪","Estonia"],["et","🇪🇹","Ethiopia"],
 ["fj","🇫🇯","Fiji"],["fi","🇫🇮","Finland"],["ga","🇬🇦","Gabon"],["gm","🇬🇲","Gambia"],["ge","🇬🇪","Georgia"],["gh","🇬🇭","Ghana"],["gr","🇬🇷","Greece"],["gd","🇬🇩","Grenada"],["gt","🇬🇹","Guatemala"],["gn","🇬🇳","Guinea"],
-["gw","🇬🇼","Guinea-Bissau"],["gy","🇬🇾","Guyana"],["ht","🇭🇹","Haiti"],["hn","🇭🇳","Honduras"],["hu","🇭🇺","Hungary"],["is","🇮🇸","Iceland"],["id","🇮🇩","Indonesia"],["iq","🇮🇶","Iraq"],["ie","🇮🇪","Ireland"],["il","🇮🇱","Israel"],
-["jm","🇯🇲","Jamaica"],["jo","🇯🇴","Jordan"],["kz","🇰🇿","Kazakhstan"],["ke","🇰🇪","Kenya"],["ki","🇰🇮","Kiribati"],["kp","🇰🇵","North Korea"],["kw","🇰🇼","Kuwait"],["kg","🇰🇬","Kyrgyzstan"],["la","🇱🇦","Laos"],["lv","🇱🇻","Latvia"],
-["lb","
+["gw","🇬🇼","Bissau"],["gy","🇬🇾","Guyana"],["ht","🇭🇹","Haiti"],["hn","🇭🇳","Honduras"],["hu","🇭🇺","Hungary"],["is","🇮🇸","Iceland"],["id","🇮🇩","Indonesia"],["iq","🇮🇶","Iraq"],["ie","🇮🇪","Ireland"],["il","🇮🇱","Israel"],
+["jm","🇯🇲","Jamaica"],["jo","🇯🇴","Jordan"],["kz","🇰🇿","Kazakh"],["ke","🇰🇪","Kenya"],["ki","🇰🇮","Kiribati"],["kp","🇰🇵","N.Korea"],["kw","🇰🇼","Kuwait"],["kg","🇰🇬","Kyrgyz"],["la","🇱🇦","Laos"],["lv","🇱🇻","Latvia"],
+["lb","🇱🇧","Lebanon"],["ls","🇱🇸","Lesotho"],["lr","🇱🇷","Liberia"],["ly","🇱🇾","Libya"],["li","🇱🇮","Liechten"],["lt","🇱🇹","Lithuania"],["lu","🇱🇺","Lux"],["mg","🇲🇬","Madagascar"],["mw","🇲🇼","Malawi"],["my","🇲🇾","Malaysia"],
+["mv","🇲🇻","Maldives"],["ml","🇲🇱","Mali"],["mt","🇲🇹","Malta"],["mh","🇲🇭","Marshall"],["mr","🇲🇷","Mauritania"],["mu","🇲🇺","Mauritius"],["mx","🇲🇽","Mexico"],["fm","🇫🇲","Micronesia"],["md","🇲🇩","Moldova"],["mc","🇲🇨","Monaco"],
+["mn","🇲🇳","Mongolia"],["me","🇲🇪","Montenegro"],["ma","🇲🇦","Morocco"],["mz","🇲🇿","Mozambique"],["mm","🇲🇲","Myanmar"],["na","🇳🇦","Namibia"],["nr","🇳🇷","Nauru"],["np","🇳🇵","Nepal"],["nl","🇳🇱","Netherlands"],["nz","🇳🇿","NZ"],
+["ni","🇳🇮","Nicaragua"],["ne","🇳🇪","Niger"],["ng","🇳🇬","Nigeria"],["mk","🇲🇰","Macedonia"],["no","🇳🇴","Norway"],["om","🇴🇲","Oman"],["pw","🇵🇼","Palau"],["ps","🇵🇸","Palestine"],["pa","🇵🇦","Panama"],["pg","🇵🇬","Papua"],
+["py","🇵🇾","Paraguay"],["pe","🇵🇪","Peru"],["ph","🇵🇭","Philippines"],["pl","🇵🇱","Poland"],["pt","🇵🇹","Portugal"],["qa","🇶🇦","Qatar"],["ro","🇷🇴","Romania"],["rw","🇷🇼","Rwanda"],["kn","🇰🇳","St Kitts"],["lc","🇱🇨","St Lucia"],
+["ws","🇼🇸","Samoa"],["sm","🇸🇲","San Marino"],["st","🇸🇹","Sao Tome"],["sn","🇸🇳","Senegal"],["rs","🇷🇸","Serbia"],["sc","🇸🇨","Seychelles"],["sl","🇸🇱","Sierra"],["sg","🇸🇬","Singapore"],["sk","🇸🇰","Slovakia"],["si","🇸🇮","Slovenia"],
+["sb","🇸🇧","Solomon"],["so","🇸🇴","Somalia"],["za","🇿🇦","S.Africa"],["ss","🇸🇸","S.Sudan"],["lk","🇱🇰","Sri Lanka"],["sd","🇸🇩","Sudan"],["sr","🇸🇷","Suriname"],["se","🇸🇪","Sweden"],["ch","🇨🇭","Swiss"],["sy","🇸🇾","Syria"],
+["tj","🇹🇯","Tajik"],["tz","🇹🇿","Tanzania"],["th","🇹🇭","Thailand"],["tl","🇹🇱","Timor"],["tg","🇹🇬","Togo"],["to","🇹🇴","Tonga"],["tt","🇹🇹","Trinidad"],["tn","🇹🇳","Tunisia"],["tm","🇹🇲","Turkmen"],["tv","🇹🇻","Tuvalu"],
+["ug","🇺🇬","Uganda"],["ua","🇺🇦","Ukraine"],["uy","🇺🇾","Uruguay"],["uz","🇺🇿","Uzbek"],["vu","🇻🇺","Vanuatu"],["va","🇻🇦","Vatican"],["ve","🇻🇪","Venezuela"],["vn","🇻🇳","Vietnam"],["ye","🇾🇪","Yemen"],["zm","🇿🇲","Zambia"],["zw","🇿🇼","Zimbabwe"]
+];
+const grid=document.getElementById('flagGrid');
+const sel=document.getElementById('lang');
+world.forEach(f=>{
+let d=document.createElement('div');d.className='flag-item';d.innerHTML=f[1]+"<br>"+f[2];
+d.onclick=()=>{sel.value="en"; alert(f[1]+" "+f[2]+" Selected!");}
+grid.appendChild(d);
+});
+[["bn","🇧🇩 বাংলা"],["en","🇺🇸 English"],["ar","🇸🇦 Arabic"],["hi","🇮🇳 Hindi"],["ur","🇵🇰 Urdu"],["es","🇪🇸 Spanish"],["fr","🇫🇷 French"],["de","🇩🇪 German"],["ja","🇯🇵 Japanese"],["zh","🇨🇳 Chinese"],["ru","🇷🇺 Russian"],["tr","🇹🇷 Turkish"]].forEach(l=>{
+let o=document.createElement('option');o.value=l[0];o.textContent=l[1];sel.appendChild(o);
+});
+document.getElementById('bookFile').addEventListener('change',function(e){
+let f=e.target.files[0];if(!f)return;
+let r=new FileReader();r.onload=function(ev){document.getElementById('in').value=ev.target.result.substring(0,15000);alert('✅ বই Ready দুস্ত!');};r.readAsText(f);
+});
+async function tr(){
+let t=document.getElementById('in').value;let l=document.getElementById('lang').value;
+if(!t)return alert('লেখো দুস্ত!');
+document.getElementById('out').value='⏳ Translating...';
+try{let res=await fetch(`https://api.mymemory.translated.net/get?q=${encodeURIComponent(t.substring(0,500))}&langpair=auto|${l}`);let d=await res.json();document.getElementById('out').value=d.responseData.translatedText;}catch{document.getElementById('out').value=t;}
+}
+function spk(){let t=document.getElementById('out').value;if(!t)return;let u=new SpeechSynthesisUtterance(t);u.lang=document.getElementById('lang').value;u.rate=0.9;speechSynthesis.cancel();speechSynthesis.speak(u);}
+function stop(){speechSynthesis.cancel();}
+function copyT(){let o=document.getElementById('out');o.select();document.execCommand('copy');alert('✅ Copy DONE!');}
+</script>
+</body>
+</html>
