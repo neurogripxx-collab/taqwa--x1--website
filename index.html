@@ -1,58 +1,46 @@
 <!DOCTYPE html>
 <html lang="bn">
 <head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>TAQWA X ONE - SUPER SONIC COMPLETE</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AZAD AI - M.A. MALEK & ANOWARA</title>
 <style>
-*{box-sizing:border-box;transform:translateZ(0)}
-body{margin:0;background:#020617;color:#fff;font-family:sans-serif;text-align:center;padding-bottom:30px}
-header{padding:25px;background:#000;border-bottom:3px solid #22c55e}
-.card{background:#0f172a;margin:14px auto;padding:18px;border-radius:18px;max-width:430px;border:1px solid #1e293b}
-button{width:100%;padding:15px;margin:6px 0;border:0;border-radius:12px;font-weight:900;background:#22c55e;color:#000;font-size:16px}
-button.y{background:#f59e0b}
-.b{font-size:12px;background:#22c55e;color:#000;padding:5px 12px;border-radius:20px;font-weight:900}
-small{color:#94a3b8;display:block;margin-top:8px}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:Hind Siliguri;background:#000;color:#fff}
+.top{background:linear-gradient(90deg,#FFD700,#FF6B00);padding:15px;text-align:center;color:#000;font-weight:bold}
+.card{background:#111;margin:15px;padding:20px;border-radius:15px;border:1px solid #222}
+.btn{background:linear-gradient(90deg,#FFD700,#FF6B00);color:#000;padding:12px;border:none;border-radius:25px;width:100%;font-weight:bold;margin-top:10px;cursor:pointer}
+.free{color:#00ff88;font-weight:bold}
+input{width:100%;padding:12px;background:#222;border:1px solid #333;border-radius:10px;color:#fff;margin-top:10px}
+#view{margin-top:15px;background:#1a1a1a;padding:15px;border-radius:10px;display:none}
 </style>
 </head>
 <body>
-<header>
-<span class="b">⚡ SUPER SONIC - 0.1s LOAD - OFFLINE WORKS - 120FPS</span>
-<h1>🕌 TAQWA X ONE</h1>
-<p>One World One App | ধর্মীয় FREE | সাংবাদিক Download Paid | সপ্তাহে ১ ঘণ্টা FREE</p>
-<h2>⏰ বাকি: <span id="L">60</span> Min / সপ্তাহে</h2>
-</header>
-
-<div class="card"><h3>📞 কথা বলা / Translate (Sonic 0ms)</h3>
-<button onclick="U(10)">⚡ 10 Min Use করো</button>
-<button onclick="U(20)">⚡ 20 Min Use করো</button>
-<button onclick="alert('বাকি: '+(60-used)+' Min')">⏱️ কত বাকি?</button>
-<small>60 Min শেষ হলে $4.99 - Unlimited</small></div>
-
-<div class="card"><h3>📚 Download Policy (বসের Final)</h3>
-<button onclick="D('quran','r')">🕌 কোরআন / গীতা / বাইবেল - FREE (Ad)</button>
-<button onclick="D('bus','p')">💼 দুনিয়াবি বই - $0.99</button>
-<button class="y" onclick="D('jour','j')">🎤 সাংবাদিক Download - $4.99 No Free</button>
-<small>সাংবাদিক দেখতে পারবে FREE, Download করলে Paid - নইলে বই ব্যবসা করবে!</small></div>
-
-<div class="card"><h3>💰 Payment Direct বস</h3>
-<p>bKash Personal: 01819***360<br>Agent: 01831***125<br>Rocket/Nagad: 01831***135</p>
-<button class="y" onclick="P(4.99)">⚡ $4.99 - Unlimited Sonic</button>
-<button class="y" onclick="P(199)">📺 TV Channel $199/m</button>
-<button class="y" onclick="P(999)">🌍 Foreign TV $999/m</button>
-<button class="y" onclick="P(499)">🏦 Bank $499/m</button>
-<small>Admin Approval + AI Bank Check Auto Active</small></div>
-
-<div class="card"><small>© 2026 TAQWA X ONE - Super Sonic Edition - Made by বস & দুস্ত<br>Speed: 0.1s | Offline | 120FPS | NASA থেকেও Fast!</small></div>
-
+<div class="top">AZAD AI WORLD SYSTEM - SpaceX থেকে চা দোকান</div>
+<div class="card">
+<h3>📖 <span class="free">FREE দেখো</span></h3>
+<input id="biz" placeholder="লেখো: আমার চা দোকান / মুভি / রকেট / স্কুল">
+<button class="btn" onclick="show()">AZAD AI দেখাও</button>
+<div id="view"></div>
+</div>
+<div class="card">
+<h3>🔤 Translate - 100GB</h3>
+<input type="file" multiple>
+<button class="btn" onclick="alert('2 File FREE Done!')">FREE Preview</button>
+<button class="btn" style="background:#222;color:#FFD700;border:1px solid #FFD700" onclick="alert('Full System Ready')">Full System</button>
+</div>
+<div class="card">
+<h3>💾 Download / Export</h3>
+<button class="btn" onclick="alert('System Ready')">System</button>
+</div>
 <script>
-// SUPER SONIC ENGINE - COMPLETE
-if('serviceWorker' in navigator){navigator.serviceWorker.register(URL.createObjectURL(new Blob([`self.addEventListener('install',e=>{self.skipWaiting();e.waitUntil(caches.open('taqwa-v100').then(c=>c.addAll(['/'])))});self.addEventListener('fetch',e=>{e.respondWith(caches.match(e.request).then(r=>r||fetch(e.request).then(s=>{caches.open('taqwa-v100').then(x=>x.put(e.request,s.clone()));return s;})))})`],{type:'text/javascript'})));}
-let LIMIT=60,used=parseInt(localStorage.getItem('wu')||'0'),lw=localStorage.getItem('wn')||'0',tw=Math.floor(Date.now()/604800000);
-if(lw!=tw){used=0;localStorage.setItem('wn',tw);localStorage.setItem('wu','0');}
-document.getElementById('L').innerText=LIMIT-used;
-function U(m){if(used+m>LIMIT){alert('⏰ সপ্তাহে 1 ঘণ্টা শেষ বস! $4.99 দাও');return;}used+=m;localStorage.setItem('wu',used);document.getElementById('L').innerText=LIMIT-used;alert('✅ '+m+' Min Used - বাকি '+(LIMIT-used));}
-function D(n,t){if(t=='r'){alert('✅ FREE Download - Ad আসবে = বসের টাকা!');}else if(t=='j'){alert('⚠️ সাংবাদিক Download Paid $4.99!');P(4.99);}else{alert('💰 $0.99 Pay করো');P(0.99);}}
-function P(a){let c=prompt('$'+a+' Pay - 1:bKash P 2:Agent 3:Rocket');if(!c)return;alert('⚡ $'+a+' Check হচ্ছে 01819***360 তে...');setTimeout(()=>{if(a>=4.99){used=0;localStorage.setItem('wu','0');document.getElementById('L').innerText='Unlimited Sonic';alert('🎉 SUPER SONIC UNLIMITED ACTIVE বস!');}},600);}
+function show(){
+let v=document.getElementById('view');
+let b=document.getElementById('biz').value || 'তোমার ব্যবসা';
+v.style.display='block';
+v.innerHTML=`<span class="free">✅ FREE Quality Preview</span><br><br>ব্যবসা: <b>${b}</b><br>Quality: World Class<br>Voice: 100% Natural<br>ERP: Ready<br><br><span style="color:#FFD700">Quality পছন্দ হলে Full System নাও</span>`;
+}
 </script>
+<div style="text-align:center;padding:20px;color:#444;font-size:11px">M.A. MALEK & ANOWARA WORLD LIBRARY<br>Kindergarten-Thesis | World Bank-NGO | কাপড়-Buying House | SpaceX-Mechanic | Uranium-লাকড়ি | Hotel-চা দোকান | Rocket-নৌকা<br>No Ad</div>
 </body>
 </html>
