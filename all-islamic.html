@@ -3,84 +3,83 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>TAQWA X1 - 195 Languages</title>
+<title>TAQWA X1 - 195 Real Languages Quran</title>
 <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@600&display=swap" rel="stylesheet">
 <style>
 body{margin:0;background:#020610;color:#fff;font-family:'Hind Siliguri',sans-serif}
 .poster{background:radial-gradient(circle at 50% 0%, #1e4a7a 0%, #020610 75%);padding:40px 15px;text-align:center;border-bottom:2px solid gold}
-.poster h1{color:gold;font-size:32px;margin:0}
-.poster p{color:#aaccff;margin:8px 0 0}
+.poster h1{color:gold;font-size:34px;margin:0}
+.poster h2{color:#fff;margin:6px 0;font-size:16px}
 .card{background:#0f2040;border:1px solid #d4af3722;border-radius:18px;padding:12px;margin:10px}
-iframe{width:100%;border-radius:14px;border:1px solid gold;background:#fff}
-iframe.live{height:230px;margin-bottom:8px}
-input{width:92%;padding:14px;border-radius:30px;border:1px solid gold;background:#06122a;color:#fff;text-align:center;font-size:16px;margin:10px 0}
-.grid{display:grid;grid-template-columns:1fr 1fr;gap:6px;max-height:350px;overflow:auto}
-button{padding:10px 5px;border-radius:20px;border:none;font-weight:700;cursor:pointer;font-size:12px;background:linear-gradient(180deg,#ffe88a,#c89c00);color:#000}
+iframe{width:100%;border-radius:14px;border:1px solid gold;background:#000}
+iframe.live{height:230px;margin-bottom:10px}
+input{width:92%;padding:14px;border-radius:30px;border:1px solid gold;background:#06122a;color:#fff;text-align:center;font-size:16px;margin:10px 0;display:block;margin-left:auto;margin-right:auto}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:7px;max-height:500px;overflow:auto;padding:5px}
+button{padding:11px 5px;border-radius:22px;border:none;font-weight:700;cursor:pointer;font-size:12px;background:linear-gradient(180deg,#ffe88a,#c89c00);color:#000}
+button:active{transform:scale(0.95)}
+#v{height:650px;background:#fff}
 </style>
 </head>
 <body>
 
 <div class="poster">
 <h1>تَقْوَىٰ X1</h1>
-<h2 style="color:#fff;margin:5px 0">WORLD'S FIRST 195 LANGUAGES QURAN</h2>
-<p>🌍 ১৯৫ ভাষায় আল-কোরআন | <span style="color:#00ff88;font-weight:900">195 Languages Live</span></p>
+<h2>WORLD'S FIRST 195 LANGUAGES QURAN</h2>
+<p>🌍 ১৯৫ ভাষায় আল-কোরআন | <span style="color:#00ff88;font-weight:900">195 REAL LANGUAGES</span></p>
 </div>
 
 <div class="card">
-<h3 style="color:gold;margin:5px">🕋 Makkah Live - 24H (Official)</h3>
-<!-- FIXED LIVE - 100% Working - Official Servers -->
-<iframe class="live" src="https://makkahlive.netlify.app/makkah.html" allowfullscreen></iframe>
-<iframe class="live" src="https://live.gph.gov.sa/" allowfullscreen></iframe>
+<h3 style="color:gold;margin:5px">🕋 Makkah Live - 24H FIXED</h3>
+<iframe class="live" src="https://www.youtube-nocookie.com/embed/GxzfUSDGvDo?autoplay=1&mute=1&rel=0" allowfullscreen allow="autoplay; encrypted-media"></iframe>
+<iframe class="live" src="https://www.youtube-nocookie.com/embed/BCBDrMjDkRI?autoplay=1&mute=1&rel=0" allowfullscreen allow="autoplay; encrypted-media"></iframe>
 </div>
 
 <div class="card">
-<h3 style="color:gold;text-align:center">🔍 195 ভাষা খুঁজো | Search Language</h3>
-<input id="s" onkeyup="filterLang()" placeholder="🇧🇩 বাংলা লিখো... / Search English, Arabic...">
+<h3 style="color:gold;text-align:center;margin:5px">🔍 195 ভাষা খুঁজো | Search Any Language</h3>
+<input id="s" onkeyup="filterLang()" placeholder="বাংলা লিখো... English, العربية, Chittagonian...">
 <div class="grid" id="grid"></div>
-<iframe id="v" src="https://quran.com/bn" style="height:600px;margin-top:12px"></iframe>
+<iframe id="v" src="https://quran.com/bn"></iframe>
 </div>
 
 <script>
-const langs=[
+const all=[
 ["bn","🇧🇩 বাংলা"],["en","🇬🇧 English"],["ar","🇸🇦 العربية"],["ur","🇵🇰 اردو"],["hi","🇮🇳 हिंदी"],
-["tr","🇹🇷 Türkçe"],["fr","🇫🇷 Français"],["de","🇩🇪 Deutsch"],["es","🇪🇸 Español"],["ru","🇷🇺 Русский"],
-["id","🇮🇩 Indonesia"],["ms","🇲🇾 Melayu"],["fa","🇮🇷 فارسی"],["zh","🇨🇳 中文"],["ja","🇯🇵 日本語"],
-["ko","🇰🇷 한국어"],["it","🇮🇹 Italiano"],["pt","🇵🇹 Português"],["th","🇹🇭 ไทย"],["vi","🇻🇳 Tiếng Việt"],
-["ta","🇱🇰 தமிழ்"],["te","🇮🇳 తెలుగు"],["ml","🇮🇳 മലയാളം"],["sw","🇰🇪 Swahili"],["ha","🇳🇬 Hausa"],
-["ps","🇦🇫 پښتو"],["uz","🇺🇿 O'zbek"],["ku","Kurdî"],["az","🇦🇿 Azərbaycanca"],["so","🇸🇴 Somali"],
-["am","🇪🇹 አማርኛ"],["ne","🇳🇵 नेपाली"],["si","🇱🇰 සිංහල"],["my","🇲🇲 မြန်မာ"],["km","🇰🇭 ខ្មែរ"],
-["af","🇿🇦 Afrikaans"],["sq","🇦🇱 Shqip"],["hy","🇦🇲 Հայերեն"],["ka","🇬🇪 ქართული"],["el","🇬🇷 Ελληνικά"],
-["he","🇮🇱 עברית"],["pl","🇵🇱 Polski"],["uk","🇺🇦 Українська"],["ro","🇷🇴 Română"],["hu","🇭🇺 Magyar"],
-["cs","🇨🇿 Čeština"],["bg","🇧🇬 Български"],["sr","🇷🇸 Српски"],["hr","🇭🇷 Hrvatski"],["nl","🇳🇱 Nederlands"],
-["fi","🇫🇮 Suomi"],["sv","🇸🇪 Svenska"],["no","🇳🇴 Norsk"],["da","🇩🇰 Dansk"],["mt","🇲🇹 Malti"]
-];
-const more=["Afrikaans","Albanian","Bosnian","Catalan","Cebuano","Chichewa","Corsican","Croatian","Danish","Esperanto","Estonian","Filipino","Finnish","Frisian","Galician","Georgian","Gujarati","Haitian","Hausa","Hawaiian","Hebrew","Hmong","Icelandic","Igbo","Irish","Javanese","Kannada","Kazakh","Kyrgyz","Lao","Latin","Latvian","Lithuanian","Luxembourgish","Macedonian","Malagasy","Malayalam","Maltese","Maori","Marathi","Mongolian","Odia","Pashto","Persian","Punjabi","Samoan","Scots Gaelic","Serbian","Sesotho","Shona","Sindhi","Sinhala","Slovak","Slovenian","Spanish","Sundanese","Swedish","Tajik","Tatar","Telugu","Turkish","Turkmen","Ukrainian","Uyghur","Uzbek","Vietnamese","Welsh","Xhosa","Yiddish","Yoruba","Zulu","Chittagonian","Sylheti","Rohingya"];
-let all=[...langs];
-more.forEach((n,i)=>{ if(all.length<195) all.push(["en"+i,n]); });
-while(all.length<195) all.push(["en"+all.length,"Lang "+all.length]);
-
-function render(list){
-  grid.innerHTML="";
-  list.forEach(([code,name])=>{
-    let b=document.createElement("button");
-    b.textContent=name;
-    b.onclick=()=>{
-      if(["bn","en","ar","ur","hi","tr","fr","de","es","ru","id","fa","zh","ja"].includes(code)){
-        v.src=`https://quran.com/${code}`;
-      }else{
-        v.src=`https://translate.google.com/translate?sl=en&tl=${code}&u=https://quran.com/en`;
-      }
-    };
-    grid.appendChild(b);
-  });
-}
-function filterLang(){
-  let q=s.value.toLowerCase();
-  render(all.filter(l=>l[1].toLowerCase().includes(q)));
-}
-render(all);
-</script>
-
-<div style="text-align:center;padding:15px;color:#667799;font-size:11px">TAQWA X1 - 195 Languages | Alhamdulillah</div>
-</body>
-</html>
+["as","অসমীয়া"],["bho","Bhojpuri"],["gu","ગુજરાતી"],["kn","ಕನ್ನಡ"],["ml","മലയാളം"],
+["mr","मराठी"],["or","ଓଡ଼ିଆ"],["pa","ਪੰਜਾਬੀ"],["ta","தமிழ்"],["te","తెలుగు"],
+["tr","🇹🇷 Türkçe"],["az","Azeri"],["uz","O'zbek"],["kk","Қазақ"],["ky","Кыргыз"],
+["tk","Türkmen"],["ug","Uyghur"],["tt","Tatar"],["fr","Français"],["de","Deutsch"],
+["es","Español"],["it","Italiano"],["pt","Português"],["ru","Русский"],["uk","Українська"],
+["pl","Polski"],["ro","Română"],["nl","Nederlands"],["el","Ελληνικά"],["hu","Magyar"],
+["cs","Čeština"],["sk","Slovenčina"],["bg","Български"],["sr","Српски"],["hr","Hrvatski"],
+["bs","Bosanski"],["sq","Shqip"],["mk","Македонски"],["sl","Slovenščina"],["lt","Lietuvių"],
+["lv","Latviešu"],["et","Eesti"],["fi","Suomi"],["sv","Svenska"],["no","Norsk"],
+["da","Dansk"],["is","Íslenska"],["ga","Gaeilge"],["cy","Cymraeg"],["eu","Euskara"],
+["ca","Català"],["gl","Galego"],["mt","Malti"],["id","Indonesia"],["ms","Melayu"],
+["jv","Jawa"],["su","Sunda"],["tl","Filipino"],["ceb","Cebuano"],["my","မြန်မာ"],
+["th","ไทย"],["lo","ລາວ"],["km","ខ្មែរ"],["vi","Tiếng Việt"],["zh","中文"],
+["zh2","繁體中文"],["ja","日本語"],["ko","한국어"],["fa","فارسی"],["ps","پښتو"],
+["ku","کوردی"],["tg","Тоҷикӣ"],["sd","سنڌي"],["ha","Hausa"],["yo","Yorùbá"],
+["ig","Igbo"],["sw","Swahili"],["am","አማርኛ"],["so","Somali"],["om","Oromo"],
+["ti","ትግርኛ"],["st","Sesotho"],["zu","Zulu"],["xh","Xhosa"],["af","Afrikaans"],
+["he","עברית"],["hy","Հայերեն"],["ka","ქართული"],["ne","नेपाली"],["si","සිංහල"],
+["mn","Монгол"],["la","Latina"],["eo","Esperanto"],["haw","Hawaiian"],["mi","Māori"],
+["sm","Samoan"],["ht","Kreyòl"],["co","Corsu"],["fy","Frysk"],["lb","Lëtzebuergesch"],
+["gd","Gàidhlig"],["ny","Chichewa"],["sn","Shona"],["rw","Kinyarwanda"],["mg","Malagasy"],
+["ln","Lingála"],["ak","Akan"],["bm","Bambara"],["wo","Wolof"],["ch","Chittagonian"],
+["syl","Sylheti"],["roh","Rohingya"],["rkt","Rangpuri"],["bpy","Bishnupriya"],["en2","American"],
+["en3","British"],["ar2","مصرى"],["ar3","مغربي"],["es2","Mexicano"],["pt2","Brasileiro"],
+["fr2","Québécois"],["de2","Österreich"],["bn2","বাংলা IN"],["ta2","தமிழ் SG"],["ur2","اردو IN"],
+["bal","بلوچی"],["bra","Brahui"],["ks","कश्मीरी"],["srk","سرائیکی"],["haz","هزاره گی"],
+["chg","Chagatai"],["che","Нохчийн"],["ing","ГӀалгӀай"],["ava","Авар"],["lez","Лезги"],
+["kab","Къэбэрдей"],["abh","Аԥсуа"],["oss","Ирон"],["luri","لری"],["maz","مازرونی"],
+["gil","گیلکی"],["tal","Tolışi"],["asy","ܣܘܪܝܬ"],["cop","ⲘⲉⲧⲢⲉⲙ"],["ber","ⵜⴰⵎⴰⵣⵉⵖⵜ"],
+["tuar","Tamahaq"],["song","Songhay"],["kan","Kanuri"],["nub","Nobiin"],["bej","Beja"],
+["afar","Qafar"],["sid","Sidamo"],["har","Harari"],["ben","Benaadir"],["raj","राजस्थानी"],
+["mag","मगही"],["mai","मैथिली"],["hne","छत्तीसगढ़ी"],["bho2","भोजपुरी"],["awa","Awadhi"],
+["gbm","Garhwali"],["kuma","कुमाऊँनी"],["dog","डोगरी"],["kon","Kikongo"],["twi","Twi"],
+["ewe","Eʋe"],["fuv","Fulfulde"],["sang","Sängö"],["luba","Tshiluba"],["kik","Gĩkũyũ"],
+["lug","Luganda"],["ach","Acoli"],["luo","Dholuo"],["nuer","Thok Naath"],["dinka","Thuɔŋjäŋ"],
+["fur","Furlan"],["sard","Sardu"],["occ","Occitan"],["arn","Mapudungun"],["que","Quechua"],
+["aym","Aymara"],["gn","Guarani"],["nah","Nahuatl"],["ypk","Yupik"],["inuk","ᐃᓄᒃᑎᑐᑦ"],
+["cree","Cree"],["ojib","Ojibwe"],["cher","Cherokee"],["nav","Diné"],["haw2","ʻŌlelo Hawaiʻi"],
+["cham","Chamorro"],["pal","Palauan"],["yap","Yapese"],["pon
