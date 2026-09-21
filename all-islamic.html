@@ -3,19 +3,19 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>TAQWA X1 - 195 Languages Quran</title>
+<title>TAQWA X1 - 195 Languages</title>
 <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@600&display=swap" rel="stylesheet">
 <style>
 body{margin:0;background:#020610;color:#fff;font-family:'Hind Siliguri',sans-serif}
-.poster{background:radial-gradient(circle at 50% 0%,#1e4a7a,#020610);padding:40px 15px;text-align:center;border-bottom:2px solid gold}
+.poster{background:radial-gradient(circle at 50% 0%,#1e4a7a,#020610);padding:35px 15px;text-align:center;border-bottom:2px solid gold}
 .poster h1{color:gold;font-size:34px;margin:0}
-.card{background:#0f2040;border-radius:18px;padding:12px;margin:10px;border:1px solid #ffffff22}
+.card{background:#0f2040;border:1px solid #ffffff22;border-radius:18px;padding:12px;margin:10px}
 iframe{width:100%;border-radius:14px;border:1px solid gold;background:#000}
 .live{height:230px;margin-bottom:10px}
 input{width:92%;padding:14px;border-radius:30px;border:1px solid gold;background:#06122a;color:#fff;text-align:center;display:block;margin:10px auto}
 .grid{display:grid;grid-template-columns:1fr 1fr;gap:7px;max-height:600px;overflow:auto}
 button{padding:12px;border-radius:20px;border:none;font-weight:700;background:gold;color:#000}
-#v{height:650px;background:#fff}
+#v{height:650px;background:#fff;margin-top:10px}
 </style>
 </head>
 <body>
@@ -27,9 +27,9 @@ button{padding:12px;border-radius:20px;border:none;font-weight:700;background:go
 </div>
 
 <div class="card">
-<h3 style="color:gold">🕋 Makkah Live - FIXED</h3>
-<iframe class="live" src="https://www.youtube-nocookie.com/embed/GxzfUSDGvDo?autoplay=1&mute=1" allowfullscreen></iframe>
-<iframe class="live" src="https://www.youtube-nocookie.com/embed/BCBDrMjDkRI?autoplay=1&mute=1" allowfullscreen></iframe>
+<h3 style="color:gold">🕋 Makkah & Madina Live - FIXED ✅</h3>
+<iframe class="live" src="https://www.youtube-nocookie.com/embed/live_stream?channel=UCos52azQNBgW63_9uDJoPDA" allowfullscreen></iframe>
+<iframe class="live" src="https://www.youtube-nocookie.com/embed/live_stream?channel=UCROKYPep-UuODNwyipe6JMw" allowfullscreen></iframe>
 </div>
 
 <div class="card">
@@ -73,25 +73,21 @@ const all=[
 ["kum","Kumyk"],["nog","Nogai"],["gag","Gagauz"],["alt","Altay"],["kha","Khakas"],
 ["tuv2","Tuvan"],["yak","Yakut"],["yue","粵語"],["wu","吴语"],["hak","客家"]
 ];
-
 function render(list){
   const g=document.getElementById("grid");
   g.innerHTML="";
-  list.forEach(([code,name])=>{
+  list.forEach(([c,n])=>{
     const b=document.createElement("button");
-    b.textContent=name;
-    b.onclick=()=>{document.getElementById("v").src="https://quran.com/"+code.substring(0,2);};
+    b.textContent=n;
+    b.onclick=()=>{document.getElementById("v").src="https://quran.com/"+c.substring(0,2);};
     g.appendChild(b);
   });
 }
-
 function filterLang(){
   const q=document.getElementById("s").value.toLowerCase();
   render(all.filter(x=>x[1].toLowerCase().includes(q)));
 }
-
 render(all);
 </script>
-
 </body>
 </html>
