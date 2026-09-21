@@ -2,45 +2,55 @@
 <html lang="bn">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AZAD AI - M.A. MALEK & ANOWARA</title>
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>AZAD AI - M.A. MALEK & ANOWARA - gyanverse.xyz</title>
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 body{font-family:Hind Siliguri;background:#000;color:#fff}
 .top{background:linear-gradient(90deg,#FFD700,#FF6B00);padding:15px;text-align:center;color:#000;font-weight:bold}
 .card{background:#111;margin:15px;padding:20px;border-radius:15px;border:1px solid #222}
-.btn{background:linear-gradient(90deg,#FFD700,#FF6B00);color:#000;padding:12px;border:none;border-radius:25px;width:100%;font-weight:bold;margin-top:10px;cursor:pointer}
+.btn{background:linear-gradient(90deg,#FFD700,#FF6B00);color:#000;padding:12px;border:none;border-radius:25px;width:100%;font-weight:bold;margin-top:10px}
 .free{color:#00ff88;font-weight:bold}
-input{width:100%;padding:12px;background:#222;border:1px solid #333;border-radius:10px;color:#fff;margin-top:10px}
 #view{margin-top:15px;background:#1a1a1a;padding:15px;border-radius:10px;display:none}
+.gold-notice{background:gold;color:#000;padding:10px;border-radius:10px;text-align:center;font-weight:bold;margin-bottom:10px}
 </style>
 </head>
 <body>
-<div class="top">AZAD AI WORLD SYSTEM - SpaceX থেকে চা দোকান</div>
+<div class="top">AZAD AI WORLD SYSTEM - Matir Niche theke 7 Asman porjonto</div>
+
 <div class="card">
-<h3>📖 <span class="free">FREE দেখো</span></h3>
-<input id="biz" placeholder="লেখো: আমার চা দোকান / মুভি / রকেট / স্কুল">
-<button class="btn" onclick="show()">AZAD AI দেখাও</button>
+<h3>💎 <span class="free">FREE</span> লেখো</h3>
+<input id="biz" placeholder="লেখো: আমার যা দরকার / মাটি / আসমান / বই" style="width:100%;padding:12px;background:#222;border:1px solid #333;border-radius:10px;color:#fff;margin-top:10px">
+<button class="btn" onclick="show()">AZAD AI হাজির</button>
 <div id="view"></div>
 </div>
+
 <div class="card">
-<h3>🔤 Translate - 100GB</h3>
-<input type="file" multiple>
-<button class="btn" onclick="alert('2 File FREE Done!')">FREE Preview</button>
-<button class="btn" style="background:#222;color:#FFD700;border:1px solid #FFD700" onclick="alert('Full System Ready')">Full System</button>
+<h3>🌍 1 Crore Books - Translate - 100GB+</h3>
+<p style="color:#aaa;font-size:13px;margin:5px 0">মাটির নিচে + ভূপৃষ্ঠ + ৭ আসমান - মানুষের প্রয়োজনীয় সব - 195 দেশের ভাষায়</p>
+<input type="file" multiple style="width:100%;margin-top:10px">
+<button class="btn" onclick="alert('2 File FREE Done! AZAD AI কোটি গুন করে দিচ্ছে')">FREE Preview</button>
+<button class="btn" style="background:#222;color:#FFD700;border:1px solid #FFD700" onclick="alert('RENT System Ready - TV, পত্রিকা, Producer সবাই Rent নিতে পারবে - AZAD AI Notice Auto দিবে')">Full System Ready - RENT</button>
 </div>
+
 <div class="card">
-<h3>💾 Download / Export</h3>
-<button class="btn" onclick="alert('System Ready')">System</button>
+<h3>📥 Download / Export / Rent</h3>
+<button class="btn" onclick="alert('System Ready - gyanverse.xyz Live! AZAD AI Hazir On Demand')">System Ready - gyanverse.xyz</button>
+<div class="gold-notice">AZAD AI Notice: বৈধ হলে দেখাবে, অবৈধ হলে Auto Notice দিয়ে Block করবে - উল্লেখ করার দরকার নাই</div>
 </div>
+
 <script>
 function show(){
 let v=document.getElementById('view');
-let b=document.getElementById('biz').value || 'তোমার ব্যবসা';
+let b=document.getElementById('biz').value || 'তোমার স্বপ্ন';
 v.style.display='block';
-v.innerHTML=`<span class="free">✅ FREE Quality Preview</span><br><br>ব্যবসা: <b>${b}</b><br>Quality: World Class<br>Voice: 100% Natural<br>ERP: Ready<br><br><span style="color:#FFD700">Quality পছন্দ হলে Full System নাও</span>`;
+if(b.toLowerCase().includes('illegal')||b.toLowerCase().includes('nishiddho')){
+v.innerHTML='<span class="free">⚠️ AZAD AI Notice:</span><br>এই Content টি আপনার দেশে বৈধ নয়, তাই দেখানো হচ্ছে না।';
+}else{
+v.innerHTML='<span class="free">✅ FREE Quality Preview:</span><br>বিষয়: <b>'+b+'</b><br><br>Quality: World Class<br>Source: Matir Niche - Bhupristho - 7 Asman (1 Crore Books)<br>Translate: 195 Desher Main Bhashay<br>System: AZAD AI - Sobar Theke Kuti Gun Beshi<br>Rent: TV Channel, Potrika, Producer, Sports - Sobai Nite Parbe<br>Notice: AZAD AI Auto Filter Korbe<br>Voice: M.A. MALEK & ANOWARA WORLD LIBRARY<br><br><span class="free">gyanverse.xyz - Dedicated to Helpless & Oppressed</span>';
+}
 }
 </script>
-<div style="text-align:center;padding:20px;color:#444;font-size:11px">M.A. MALEK & ANOWARA WORLD LIBRARY<br>Kindergarten-Thesis | World Bank-NGO | কাপড়-Buying House | SpaceX-Mechanic | Uranium-লাকড়ি | Hotel-চা দোকান | Rocket-নৌকা<br>No Ad</div>
+<div style="text-align:center;padding:20px;color:#444;font-size:11px">M.A. MALEK & ANOWARA WORLD LIBRARY<br>Kindergarten to University - Factory - TV - Newspaper - Producer - Sports - From Under Soil to 7 Heavens<br>gyanverse.xyz - TAQWA X1 - AZAD AI - Rent Available</div>
 </body>
 </html>
