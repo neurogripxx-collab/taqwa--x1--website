@@ -5,27 +5,30 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>TAQWA X1 - 195 Languages</title>
 <style>
+html,body{height:100%;overflow:auto}
 body{background:#020a1a;margin:0;font-family:Arial;color:#fff}
 .card{background:#0a1931;border:2px solid gold;border-radius:20px;padding:15px;margin:15px}
-.langCard{background:#fff;color:#000;border-radius:12px;padding:10px;text-align:center;cursor:pointer;font-weight:bold}
-.langCard:hover{background:gold}
+.langCard{background:#fff;color:#000;border-radius:12px;padding:12px;text-align:center;cursor:pointer;font-weight:bold;font-size:14px}
+.langCard:hover{background:gold;transform:scale(1.05);transition:0.2s}
+.searchBox{display:flex;gap:10px;background:#fff;border-radius:30px;padding:6px 12px;align-items:center}
+.searchBox input{flex:1;border:none;padding:14px;font-size:16px;color:#000;background:transparent;outline:none}
 </style>
 </head>
 <body>
 
-<div class="card" style="position:sticky;top:10px;z-index:999">
-<h3 style="color:gold;text-align:center">195 Languages - Flag / Text / Voice Search</h3>
-<div style="display:flex;gap:10px;background:#fff;border-radius:30px;padding:5px 15px">
-<input id="langSearch" type="text" placeholder="Bangla, Arabic, English..." style="flex:1;border:none;padding:12px;outline:none" onkeyup="filterLang()">
-<button onclick="startVoice()" id="micBtn" style="background:gold;border:none;border-radius:50%;width:45px;height:45px">M</button>
+<div class="card">
+<h3 style="color:gold;text-align:center;margin:5px 0">🌍 195 Languages - Flag / Text / Voice Search</h3>
+<div class="searchBox">
+<input id="langSearch" type="text" placeholder="🔍 Bangla, Arabic, English likho..." onkeyup="filterLang()">
+<button onclick="startVoice()" id="micBtn" style="background:gold;border:none;border-radius:50%;width:48px;height:48px;font-weight:bold;cursor:pointer">🎤</button>
 </div>
-<p id="voiceStatus" style="text-align:center;color:#00ff88;font-size:12px">195 Languages Ready</p>
-<div id="langGrid" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(110px,1fr));gap:8px;max-height:400px;overflow-y:auto;margin-top:10px"></div>
+<p id="voiceStatus" style="text-align:center;color:#00ff88;font-size:13px;margin:8px 0">✅ 195 Languages Ready - Niche scroll koro</p>
+<div id="langGrid" style="display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin-top:10px"></div>
 </div>
 
 <div class="card">
-<h2 style="color:gold;text-align:center">Makkah & Madina Live</h2>
-<div style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;border-radius:15px;margin-bottom:10px">
+<h2 style="color:gold;text-align:center">🕋 Makkah & Madina Live</h2>
+<div style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;border-radius:15px;margin-bottom:12px">
 <iframe style="position:absolute;top:0;left:0;width:100%;height:100%;border:0" src="https://www.youtube-nocookie.com/embed/5Ifr1_qWfYc?autoplay=1&mute=1" allowfullscreen></iframe>
 </div>
 <div style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;border-radius:15px">
@@ -34,8 +37,13 @@ body{background:#020a1a;margin:0;font-family:Arial;color:#fff}
 </div>
 
 <div class="card" style="border-color:#00ff88;background:#0a2a0a">
-<h2 style="color:#00ff88;text-align:center">Hadith + Quran</h2>
-<div style="background:#fff;color:#000;border-radius:12px;padding:12px">Innamal A'malu Binniyat - Bukhari 1</div>
+<h2 style="color:#00ff88;text-align:center">📜 Hadith + Quran</h2>
+<div style="background:#fff;color:#000;border-radius:12px;padding:15px;text-align:center;font-weight:bold">إِنَّمَا الأَعْمَالُ بِالنِّيَّاتِ<br>Innamal A'malu Binniyat - Bukhari 1<br><small style="color:green">Sokol kaj niyoter upor</small></div>
+<div style="text-align:center;margin-top:12px"><a href="all-islamic.html" style="background:gold;color:black;padding:10px 20px;border-radius:20px;text-decoration:none;font-weight:bold">📚 All Islamic Books Dekho</a></div>
+</div>
+
+<div class="card" style="background:gold;color:black;text-align:center">
+<b>📧 neurogripxx@gmail.com</b><br><small>TAQWA X1 - 195 Languages - Made for Ummah</small>
 </div>
 
 <script>
@@ -78,10 +86,35 @@ const languages=[
 ["lb","LU","Luxembourgish","luxembourgish"], ["li","LI","German LI","german liechtenstein"], ["el-cy","CY","Greek CY","greek cyprus"]
 ];
 let grid=document.getElementById('langGrid');
-function render(arr){grid.innerHTML='';arr.forEach(l=>{let d=document.createElement('div');d.className='langCard';d.innerHTML=l[1]+'<br>'+l[2];d.onclick=()=>{document.getElementById('voiceStatus').innerText=l[2]+' Selected!';};grid.appendChild(d);});}
+function render(arr){
+grid.innerHTML='';
+arr.forEach(l=>{
+let d=document.createElement('div');d.className='langCard';
+d.innerHTML=l[1]+'<br>'+l[2];
+d.onclick=()=>{document.getElementById('voiceStatus').innerText='✅ '+l[2]+' ('+l[1]+') Selected!'; window.scrollTo({top:0,behavior:'smooth'});};
+grid.appendChild(d);
+});
+document.getElementById('voiceStatus').innerText='✅ '+arr.length+' Languages Found - Scroll koro';
+}
 render(languages);
-function filterLang(){let v=document.getElementById('langSearch').value.toLowerCase();let f=languages.filter(x=>x[3].includes(v)||x[2].toLowerCase().includes(v));render(f);}
-function startVoice(){let s=document.getElementById('voiceStatus');let b=document.getElementById('micBtn');if(!('webkitSpeechRecognition' in window)){alert('Use Chrome');return;}let r=new webkitSpeechRecognition();r.start();b.innerText='R';s.innerText='Listening...';r.onresult=e=>{let t=e.results[0][0].transcript.toLowerCase();document.getElementById('langSearch').value=t;filterLang();s.innerText='Voice: '+t;b.innerText='M';};}
+function filterLang(){
+let v=document.getElementById('langSearch').value.toLowerCase();
+if(!v){render(languages);return;}
+let f=languages.filter(x=>x[3].includes(v)||x[2].toLowerCase().includes(v)||x[1].toLowerCase().includes(v));
+render(f);
+}
+function startVoice(){
+let s=document.getElementById('voiceStatus');let b=document.getElementById('micBtn');
+if(!('webkitSpeechRecognition' in window)){alert('Chrome browser e kholo');return;}
+let r=new webkitSpeechRecognition();r.lang='en-US';r.start();
+b.innerText='🔴';s.innerText='🎤 Sunchi... bolo...';
+r.onresult=e=>{
+let t=e.results[0][0].transcript.toLowerCase();
+document.getElementById('langSearch').value=t;filterLang();
+s.innerText='✅ Voice: '+t;b.innerText='🎤';
+};
+r.onerror=()=>{b.innerText='🎤';s.innerText='Voice holo na, abar try koro';};
+}
 </script>
 </body>
 </html>
