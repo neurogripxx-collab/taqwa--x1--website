@@ -1,1 +1,22 @@
-<!DOCTYPE html><html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><style>body{margin:0;background:#020610;color:#fff}.card{background:#102040;border-radius:18px;padding:12px;margin:10px} iframe{width:100%;border-radius:14px;border:1px solid gold;background:#000}.live{height:235px} input{width:92%;padding:14px;border-radius:30px;border:1px solid gold;background:#06122a;color:#fff;text-align:center;display:block} #grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:7px} #v{height:650px;background:#fff;margin-top:10px}</style></head><body><div class="card"><iframe class="live" src="https://www.youtube-nocookie.com/embed/live_stream?channel=UCosS2aQNBg63_9uJoPDA" allowfullscreen></iframe><iframe class="live" src="https://www.youtube-nocookie.com/embed/live_stream?channel=UCR0kYep-DuOcNwyper" allowfullscreen></iframe></div><div class="card"><input id="s" onkeyup="filterLang()" placeholder="Search"><div id="grid"></div><iframe id="v" src="https://quran.com/bn/"></iframe></div><script>const all=[["bn","Bangla"],["en","English"],["ar","Arabic"],["ur","Urdu"],["hi","Hindi"],["tr","Turkish"],["fr","French"],["ct","Chittagonian"]];function render(l){let g=document.getElementById("grid");g.innerHTML="";(l||all).forEach(a=>{let d=document.createElement("div");d.style.cssText="background:#fff;color:#000;border-radius:10px;padding:6px;text-align:center;font-weight:bold;font-size:10px";d.innerText=a[1];d.onclick=()=>document.getElementById("v").src="https://quran.com/"+a[0];g.appendChild(d);});}function filterLang(){let v=document.getElementById("s").value.toLowerCase();render(all.filter(x=>x[0].includes(v)||x[1].toLowerCase().includes(v)));}render();</script></body></html>
+<!-- LIVE MAKKAH MADINA - 100% WORKING -->
+<div class="card" style="border-color:red">
+<h3 style="text-align:center;color:red">🔴 LIVE NOW - সরাসরি</h3>
+
+<!-- MAKKAH -->
+<div style="position:relative">
+<iframe class="live" style="width:100%;height:240px;border-radius:14px;border:2px solid gold"
+src="https://www.youtube.com/embed/oR-5b4YNO2g?autoplay=1&mute=1&controls=1&rel=0" 
+allow="autoplay; fullscreen" allowfullscreen></iframe>
+<span style="position:absolute;top:10px;left:10px;background:red;color:#fff;padding:4px 10px;border-radius:20px;font-size:12px;font-weight:bold">🕋 MAKKAH LIVE</span>
+</div>
+
+<!-- MADINA -->
+<div style="position:relative;margin-top:10px">
+<iframe class="live" style="width:100%;height:240px;border-radius:14px;border:2px solid gold"
+src="https://www.youtube.com/embed/m99dW0L43W8?autoplay=1&mute=1&controls=1&rel=0"
+allow="autoplay; fullscreen" allowfullscreen></iframe>
+<span style="position:absolute;top:10px;left:10px;background:green;color:#fff;padding:4px 10px;border-radius:20px;font-size:12px;font-weight:bold">🕌 MADINA LIVE</span>
+</div>
+
+<p style="text-align:center;font-size:12px">Sound না আসলে Video তে Tap করে Unmute করো 🔊</p>
+</div>
