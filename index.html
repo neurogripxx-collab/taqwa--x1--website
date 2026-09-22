@@ -5,26 +5,26 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>TAQWA X1 - 195 Languages</title>
 <style>
-body{background:#020a1a;margin:0;font-family:Arial;color:white}
+body{background:#020a1a;margin:0;font-family:Arial;color:#fff}
 .card{background:#0a1931;border:2px solid gold;border-radius:20px;padding:15px;margin:15px}
-.langCard{background:white;color:#000;border-radius:12px;padding:10px;text-align:center;cursor:pointer;font-weight:bold}
-.langCard:hover{background:gold;transform:scale(1.05);transition:0.2s}
+.langCard{background:#fff;color:#000;border-radius:12px;padding:10px;text-align:center;cursor:pointer;font-weight:bold}
+.langCard:hover{background:gold}
 </style>
 </head>
 <body>
 
 <div class="card" style="position:sticky;top:10px;z-index:999">
-<h3 style="color:gold;text-align:center">🌍 195 ভাষা - পতাকা / লিখে / ভয়েসে</h3>
-<div style="display:flex;gap:10px;background:white;border-radius:30px;padding:5px 15px">
-<input id="langSearch" type="text" placeholder="🔍 Bangla, Arabic লিখো..." style="flex:1;border:none;padding:12px;outline:none" onkeyup="filterLang()">
-<button onclick="startVoice()" id="micBtn" style="background:gold;border:none;border-radius:50%;width:45px;height:45px">🎤</button>
+<h3 style="color:gold;text-align:center">195 Languages - Flag / Text / Voice Search</h3>
+<div style="display:flex;gap:10px;background:#fff;border-radius:30px;padding:5px 15px">
+<input id="langSearch" type="text" placeholder="Bangla, Arabic, English..." style="flex:1;border:none;padding:12px;outline:none" onkeyup="filterLang()">
+<button onclick="startVoice()" id="micBtn" style="background:gold;border:none;border-radius:50%;width:45px;height:45px">M</button>
 </div>
-<p id="voiceStatus" style="text-align:center;color:#00ff88;font-size:12px">✅ 195 ভাষা Ready</p>
-<div id="langGrid" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(105px,1fr));gap:7px;max-height:400px;overflow-y:auto;margin-top:10px"></div>
+<p id="voiceStatus" style="text-align:center;color:#00ff88;font-size:12px">195 Languages Ready</p>
+<div id="langGrid" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(110px,1fr));gap:8px;max-height:400px;overflow-y:auto;margin-top:10px"></div>
 </div>
 
 <div class="card">
-<h2 style="color:gold;text-align:center">🕋 Makkah & Madina Live</h2>
+<h2 style="color:gold;text-align:center">Makkah & Madina Live</h2>
 <div style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;border-radius:15px;margin-bottom:10px">
 <iframe style="position:absolute;top:0;left:0;width:100%;height:100%;border:0" src="https://www.youtube-nocookie.com/embed/5Ifr1_qWfYc?autoplay=1&mute=1" allowfullscreen></iframe>
 </div>
@@ -34,17 +34,54 @@ body{background:#020a1a;margin:0;font-family:Arial;color:white}
 </div>
 
 <div class="card" style="border-color:#00ff88;background:#0a2a0a">
-<h2 style="color:#00ff88;text-align:center">📜 হাদিস + কুরআন</h2>
-<div style="background:white;color:black;border-radius:12px;padding:12px">إِنَّمَا الأَعْمَالُ بِالنِّيَّاتِ - সকল কাজ নিয়তের উপর - বুখারী 1</div>
+<h2 style="color:#00ff88;text-align:center">Hadith + Quran</h2>
+<div style="background:#fff;color:#000;border-radius:12px;padding:12px">Innamal A'malu Binniyat - Bukhari 1</div>
 </div>
 
 <script>
-const languages=[["bn","🇧🇩","বাংলা","bangla"],["ar","🇸🇦","العربية","arabic"],["en","🇺🇸","English","english"],["ur","🇵🇰","اردو","urdu"],["hi","🇮🇳","हिन्दी","hindi"],["tr","🇹🇷","Türkçe","turkish"],["fa","🇮🇷","فارسی","persian"],["ps","🇦🇫","پښتو","pashto"],["ru","🇷🇺","Русский","russian"],["zh","🇨🇳","中文","chinese"],["ja","🇯🇵","日本語","japanese"],["ko","🇰🇷","한국어","korean"],["de","🇩🇪","Deutsch","german"],["fr","🇫🇷","Français","french"],["es","🇪🇸","Español","spanish"],["it","🇮🇹","Italiano","italian"],["pt","🇵🇹","Português","portuguese"],["id","🇮🇩","Indonesia","indonesian"],["ms","🇲🇾","Melayu","malay"],["th","🇹🇭","ไทย","thai"],["vi","🇻🇳","Tiếng Việt","vietnamese"],["sw","🇹🇿","Kiswahili","swahili"],["ha","🇳🇬","Hausa","hausa"],["am","🇪🇹","አማርኛ","amharic"],["so","🇸🇴","Soomaali","somali"],["yo","🇳🇬","Yorùbá","yoruba"],["ig","🇳🇬","Igbo","igbo"],["zu","🇿🇦","Zulu","zulu"],["af","🇿🇦","Afrikaans","afrikaans"],["nl","🇳🇱","Nederlands","dutch"],["pl","🇵🇱","Polski","polish"],["uk","🇺🇦","Українська","ukrainian"],["el","🇬🇷","Ελληνικά","greek"],["he","🇮🇱","עברית","hebrew"],["ta","🇮🇳","தமிழ்","tamil"],["te","🇮🇳","తెలుగు","telugu"],["ml","🇮🇳","മലയാളം","malayalam"],["kn","🇮🇳","ಕನ್ನಡ","kannada"],["mr","🇮🇳","मराठी","marathi"],["gu","🇮🇳","ગુજરાતી","gujarati"],["pa","🇮🇳","ਪੰਜਾਬੀ","punjabi"],["as","🇮🇳","অসমীয়া","assamese"],["ne","🇳🇵","नेपाली","nepali"],["si","🇱🇰","සිංහල","sinhala"],["my","🇲🇲","မြန်မာ","myanmar"],["km","🇰🇭","ខ្មែរ","khmer"],["lo","🇱🇦","ລາວ","lao"],["uz","🇺🇿","Oʻzbek","uzbek"],["kk","🇰🇿","Қазақ","kazakh"],["az","🇦🇿","Azərbaycan","azerbaijan"],["ky","🇰🇬","Кыргызча","kyrgyz"],["tg","🇹🇯","Тоҷикӣ","tajik"],["mn","🇲🇳","Монгол","mongolian"],["sq","🇦🇱","Shqip","albanian"],["bs","🇧🇦","Bosanski","bosnian"],["bg","🇧🇬","Български","bulgarian"],["hr","🇭🇷","Hrvatski","croatian"],["cs","🇨🇿","Čeština","czech"],["da","🇩🇰","Dansk","danish"],["et","🇪🇪","Eesti","estonian"],["fi","🇫🇮","Suomi","finnish"],["hu","🇭🇺","Magyar","hungarian"],["is","🇮🇸","Íslenska","icelandic"],["ga","🇮🇪","Gaeilge","irish"],["lv","🇱🇻","Latviešu","latvian"],["lt","🇱🇹","Lietuvių","lithuanian"],["mt","🇲🇹","Malti","maltese"],["no","🇳🇴","Norsk","norwegian"],["ro","🇷🇴","Română","romanian"],["sr","🇷🇸","Српски","serbian"],["sk","🇸🇰","Slovenčina","slovak"],["sl","🇸🇮","Slovenščina","slovenian"],["sv","🇸🇪","Svenska","swedish"],["en-gb","🇬🇧","English UK","english uk"],["pt-br","🇧🇷","Português BR","portuguese brazil"],["es-mx","🇲🇽","Español MX","spanish mexico"],["en-ca","🇨🇦","English CA","english canada"],["en-au","🇦🇺","English AU","english australia"],["en-nz","🇳🇿","English NZ","english new zealand"],["ar-eg","🇪🇬","العربية EG","arabic egypt"],["ar-dz","🇩🇿","العربية DZ","arabic algeria"],["ar-ma","🇲🇦","العربية MA","arabic morocco"],["ar-iq","🇮🇶","العربية IQ","arabic iraq"],["ar-ly","🇱🇾","العربية LY","arabic libya"],["ar-tn","🇹🇳","العربية TN","arabic tunisia"],["ar-sd","🇸🇩","العربية SD","arabic sudan"],["ar-ye","🇾🇪","العربية YE","arabic yemen"],["en-ng","🇳🇬","English NG","english nigeria"],["en-ke","🇰🇪","English KE","english kenya"],["en-gh","🇬🇭","English GH","english ghana"],["en-za","🇿🇦","English ZA","english south africa"],["fr-sn","🇸🇳","Français SN","french senegal"],["fr-ci","🇨🇮","Français CI","french ivory"],["pt-ao","🇦🇴","Português AO","portuguese angola"],["es-co","🇨🇴","Español CO","spanish colombia"],["es-pe","🇵🇪","Español PE","spanish peru"],["es-cl","🇨🇱","Español CL","spanish chile"],["es-ve","🇻🇪","Español VE","spanish venezuela"],["en-jm","🇯🇲","English JM","english jamaica"],["ti","🇪🇷","ትግርኛ","tigrinya"],["mg","🇲🇬","Malagasy","malagasy"],["rw","🇷🇼","Kinyarwanda","rwanda"],["ln","🇨🇩","Lingala","lingala"],["ak","🇬🇭","Akan","akan"],["bm","🇲🇱","Bambara","bambara"],["sg","🇨🇫","Sängö","sango"],["nd","🇿🇼","Ndebele","ndebele"],["sn","🇿🇼","Shona","shona"],["st","🇱🇸","Sesotho","sesotho"],["tn","🇧🇼","Setswana","tswana"],["ss","🇸🇿","SiSwati","siswati"],["en-ph","🇵🇭","English PH","english philippines"],["tl","🇵🇭","Tagalog","tagalog"],["bo","🇨🇳","བོད་སྐད","tibetan"],["ug","🇨🇳","ئۇيغۇرچە","uyghur"],["de-at","🇦🇹","Deutsch AT","german austria"],["de-ch","🇨🇭","Deutsch CH","german switzerland"],["cy","🏴󠁧󠁢󠁷󠁬󠁳󠁿","Cymraeg","welsh"],["eu","🇪🇸","Euskara","basque"],["ca","🇪🇸","Català","catalan"],["lb","🇱🇺","Lëtzebuergesch","luxembourgish"],["li","🇱🇮","Deutsch LI","german liechtenstein"],["el-cy","🇨🇾","Ελληνικά CY","greek cyprus"],["en-us2","🇺🇸","English US2","english usa"], ["es-us","🇺🇸","Español US","spanish usa"], ["fr-us","🇺🇸","Français US","french usa"], ["ar-us","🇺🇸","العربية US","arabic usa"], ["bn-us","🇺🇸","বাংলা US","bangla usa"], ["hi-us","🇺🇸","हिन्दी US","hindi usa"], ["zh-us","🇺🇸","中文 US","chinese usa"], ["ja-us","🇺🇸","日本語 US","japanese usa"], ["ko-us","🇺🇸","한국어 US","korean usa"], ["pt-us","🇺🇸","Português US","portuguese usa"], ["ru-us","🇺🇸","Русский US","russian usa"], ["tr-us","🇺🇸","Türkçe US","turkish usa"], ["fa-us","🇺🇸","فارسی US","persian usa"], ["ur-us","🇺🇸","اردو US","urdu usa"], ["tl-us","🇺🇸","Tagalog US","tagalog usa"], ["vi-us","🇺🇸","Tiếng Việt US","vietnamese usa"], ["th-us","🇺🇸","ไทย US","thai usa"], ["id-us","🇺🇸","Indonesia US","indonesian usa"], ["ms-us","🇺🇸","Melayu US","malay usa"], ["sw-us","🇺🇸","Kiswahili US","swahili usa"], ["am-us","🇺🇸","አማርኛ US","amharic usa"], ["so-us","🇺🇸","Soomaali US","somali usa"], ["ha-us","🇺🇸","Hausa US","hausa usa"], ["yo-us","🇺🇸","Yorùbá US","yoruba usa"], ["ig-us","🇺🇸","Igbo US","igbo usa"], ["zu-us","🇺🇸","Zulu US","zulu usa"], ["af-us","🇺🇸","Afrikaans US","afrikaans usa"], ["nl-us","🇺🇸","Nederlands US","dutch usa"], ["pl-us","🇺🇸","Polski US","polish usa"], ["uk-us","🇺🇸","Українська US","ukrainian usa"], ["el-us","🇺🇸","Ελληνικά US","greek usa"], ["he-us","🇺🇸","עברית US","hebrew usa"], ["ta-us","🇺🇸","தமிழ் US","tamil usa"], ["te-us","🇺🇸","తెలుగు US","telugu usa"], ["ml-us","🇺🇸","മലയാളം US","malayalam usa"], ["kn-us","🇺🇸","ಕನ್ನಡ US","kannada usa"], ["mr-us","🇺🇸","मराठी US","marathi usa"], ["gu-us","🇺🇸","ગુજરાતી US","gujarati usa"], ["pa-us","🇺🇸","ਪੰਜਾਬੀ US","punjabi usa"], ["as-us","🇺🇸","অসমীয়া US","assamese usa"], ["ne-us","🇺🇸","नेपाली US","nepali usa"], ["si-us","🇺🇸","සිංහල US","sinhala usa"], ["my-us","🇺🇸","မြန်မာ US","myanmar usa"], ["km-us","🇺🇸","ខ្មែរ US","khmer usa"], ["lo-us","🇺🇸","ລາວ US","lao usa"], ["uz-us","🇺🇸","Oʻzbek US","uzbek usa"], ["kk-us","🇺🇸","Қазақ US","kazakh usa"], ["az-us","🇺🇸","Azərbaycan US","azerbaijan usa"], ["sq-us","🇺🇸","Shqip US","albanian usa"], ["bs-us","🇺🇸","Bosanski US","bosnian usa"], ["bg-us","🇺🇸","Български US","bulgarian usa"], ["hr-us","🇺🇸","Hrvatski US","croatian usa"], ["cs-us","🇺🇸","Čeština US","czech usa"], ["da-us","🇺🇸","Dansk US","danish usa"], ["et-us","🇺🇸","Eesti US","estonian usa"], ["fi-us","🇺🇸","Suomi US","finnish usa"], ["hu-us","🇺🇸","Magyar US","hungarian usa"]];
+const languages=[
+["bn","BD","Bangla","bangla bd"], ["ar","SA","Arabic","arabic saudi"], ["en","US","English","english usa"],
+["ur","PK","Urdu","urdu pakistan"], ["hi","IN","Hindi","hindi india"], ["tr","TR","Turkish","turkish turkey"],
+["fa","IR","Persian","persian iran"], ["ps","AF","Pashto","pashto afghanistan"], ["ru","RU","Russian","russian russia"],
+["zh","CN","Chinese","chinese china"], ["ja","JP","Japanese","japanese japan"], ["ko","KR","Korean","korean korea"],
+["de","DE","German","german germany"], ["fr","FR","French","french france"], ["es","ES","Spanish","spanish spain"],
+["it","IT","Italian","italian italy"], ["pt","PT","Portuguese","portuguese portugal"], ["id","ID","Indonesian","indonesian"],
+["ms","MY","Malay","malay malaysia"], ["th","TH","Thai","thai thailand"], ["vi","VN","Vietnamese","vietnamese vietnam"],
+["sw","TZ","Swahili","swahili tanzania"], ["ha","NG","Hausa","hausa nigeria"], ["am","ET","Amharic","amharic ethiopia"],
+["so","SO","Somali","somali somalia"], ["yo","NG","Yoruba","yoruba"], ["ig","NG","Igbo","igbo"], ["zu","ZA","Zulu","zulu"],
+["af","ZA","Afrikaans","afrikaans"], ["nl","NL","Dutch","dutch netherlands"], ["pl","PL","Polish","polish poland"],
+["uk","UA","Ukrainian","ukrainian"], ["el","GR","Greek","greek"], ["he","IL","Hebrew","hebrew israel"],
+["ta","IN","Tamil","tamil"], ["te","IN","Telugu","telugu"], ["ml","IN","Malayalam","malayalam"], ["kn","IN","Kannada","kannada"],
+["mr","IN","Marathi","marathi"], ["gu","IN","Gujarati","gujarati"], ["pa","IN","Punjabi","punjabi"], ["as","IN","Assamese","assamese"],
+["ne","NP","Nepali","nepali nepal"], ["si","LK","Sinhala","sinhala srilanka"], ["my","MM","Myanmar","myanmar burma"],
+["km","KH","Khmer","khmer cambodia"], ["lo","LA","Lao","lao laos"], ["uz","UZ","Uzbek","uzbek uzbekistan"],
+["kk","KZ","Kazakh","kazakh kazakhstan"], ["az","AZ","Azerbaijan","azerbaijan"], ["ky","KG","Kyrgyz","kyrgyz kyrgyzstan"],
+["tg","TJ","Tajik","tajik tajikistan"], ["mn","MN","Mongolian","mongolian mongolia"], ["sq","AL","Albanian","albanian albania"],
+["bs","BA","Bosnian","bosnian bosnia"], ["bg","BG","Bulgarian","bulgarian bulgaria"], ["hr","HR","Croatian","croatian croatia"],
+["cs","CZ","Czech","czech czechia"], ["da","DK","Danish","danish denmark"], ["et","EE","Estonian","estonian estonia"],
+["fi","FI","Finnish","finnish finland"], ["hu","HU","Hungarian","hungarian hungary"], ["is","IS","Icelandic","icelandic iceland"],
+["ga","IE","Irish","irish ireland"], ["lv","LV","Latvian","latvian latvia"], ["lt","LT","Lithuanian","lithuanian lithuania"],
+["mt","MT","Maltese","maltese malta"], ["no","NO","Norwegian","norwegian norway"], ["ro","RO","Romanian","romanian romania"],
+["sr","RS","Serbian","serbian serbia"], ["sk","SK","Slovak","slovak slovakia"], ["sl","SI","Slovenian","slovenian slovenia"],
+["sv","SE","Swedish","swedish sweden"], ["en-gb","GB","English UK","english uk"], ["pt-br","BR","Portuguese BR","portuguese brazil"],
+["es-mx","MX","Spanish MX","spanish mexico"], ["en-ca","CA","English CA","english canada"], ["en-au","AU","English AU","english australia"],
+["ar-eg","EG","Arabic EG","arabic egypt"], ["ar-dz","DZ","Arabic DZ","arabic algeria"], ["ar-ma","MA","Arabic MA","arabic morocco"],
+["ar-iq","IQ","Arabic IQ","arabic iraq"], ["en-ng","NG","English NG","english nigeria"], ["en-ke","KE","English KE","english kenya"],
+["en-gh","GH","English GH","english ghana"], ["en-za","ZA","English ZA","english south africa"], ["fr-sn","SN","French SN","french senegal"],
+["pt-ao","AO","Portuguese AO","portuguese angola"], ["es-co","CO","Spanish CO","spanish colombia"], ["es-pe","PE","Spanish PE","spanish peru"],
+["en-jm","JM","English JM","english jamaica"], ["ti","ER","Tigrinya","tigrinya eritrea"], ["mg","MG","Malagasy","malagasy madagascar"],
+["rw","RW","Kinyarwanda","rwanda"], ["ln","CD","Lingala","lingala"], ["ak","GH","Akan","akan"], ["bm","ML","Bambara","bambara"],
+["sg","CF","Sango","sango"], ["nd","ZW","Ndebele","ndebele"], ["sn","ZW","Shona","shona"], ["st","LS","Sesotho","sesotho"],
+["tn","BW","Setswana","tswana"], ["ss","SZ","SiSwati","siswati"], ["en-ph","PH","English PH","english philippines"],
+["tl","PH","Tagalog","tagalog"], ["bo","CN","Tibetan","tibetan"], ["ug","CN","Uyghur","uyghur"], ["de-at","AT","German AT","german austria"],
+["de-ch","CH","German CH","german switzerland"], ["cy","GB","Welsh","welsh"], ["eu","ES","Basque","basque"], ["ca","ES","Catalan","catalan"],
+["lb","LU","Luxembourgish","luxembourgish"], ["li","LI","German LI","german liechtenstein"], ["el-cy","CY","Greek CY","greek cyprus"]
+];
 let grid=document.getElementById('langGrid');
-function render(arr){grid.innerHTML='';arr.forEach(l=>{let d=document.createElement('div');d.className='langCard';d.innerHTML=`<span style="font-size:22px">${l[1]}</span><br>${l[2]}`;d.onclick=()=>{document.getElementById('voiceStatus').innerText='✅ '+l[2]+' '+l[1]+' Selected!';};grid.appendChild(d);});}
+function render(arr){grid.innerHTML='';arr.forEach(l=>{let d=document.createElement('div');d.className='langCard';d.innerHTML=l[1]+'<br>'+l[2];d.onclick=()=>{document.getElementById('voiceStatus').innerText=l[2]+' Selected!';};grid.appendChild(d);});}
 render(languages);
 function filterLang(){let v=document.getElementById('langSearch').value.toLowerCase();let f=languages.filter(x=>x[3].includes(v)||x[2].toLowerCase().includes(v));render(f);}
-function startVoice(){let s=document.getElementById('voiceStatus');let b=document.getElementById('micBtn');if(!('webkitSpeechRecognition' in window)){alert('Chrome ব্যবহার কর');return;}let r=new webkitSpeechRecognition();r.start();b.innerText='🔴';s.innerText='🎤 শুনছি...';r.onresult=e=>{let t=e.results[0][0].transcript.toLowerCase();document.getElementById('langSearch').value=t;filterLang();s.innerText='✅ ভয়েস: '+t;b.innerText='🎤';};}
+function startVoice(){let s=document.getElementById('voiceStatus');let b=document.getElementById('micBtn');if(!('webkitSpeechRecognition' in window)){alert('Use Chrome');return;}let r=new webkitSpeechRecognition();r.start();b.innerText='R';s.innerText='Listening...';r.onresult=e=>{let t=e.results[0][0].transcript.toLowerCase();document.getElementById('langSearch').value=t;filterLang();s.innerText='Voice: '+t;b.innerText='M';};}
 </script>
 </body>
 </html>
