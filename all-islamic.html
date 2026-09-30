@@ -1,40 +1,120 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="bn">
 <head>
-<meta charset="UTF-8">
+<meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>TAQWA X1 - All Islamic</title>
+<title>All Islamic Library PRO - 198 Desh | TAQWA X1</title>
 <style>
-body{background:#0f0f0f;color:#fff;font-family:sans-serif;margin:0;padding:10px}
-.card{background:#1a1a1a;border:1px solid #333;border-radius:16px;padding:12px;margin-bottom:15px}
-.live{border:none}
-h3{margin:5px 0}
+:root{--bg:#020a13;--c1:#0e1e38;--c2:#132a52;--gold:#f5d58f;--em:#2ee6a6;--txt:#eaf2ff;--muted:#8aa0c3;--line:rgba(245,213,143,.18);--r:16px}
+*{box-sizing:border-box;margin:0;padding:0}body{background:var(--bg);color:var(--txt);font:14px/1.5 Inter,system-ui}
+.wrap{max-width:1240px;margin:auto;padding:0 16px}
+.header{position:sticky;top:0;z-index:20;background:rgba(2,10,19,.95);backdrop-filter:blur(16px);border-bottom:1px solid var(--line);padding:10px 0}
+.topRow{display:flex;gap:12px;align-items:center;justify-content:space-between;flex-wrap:wrap}
+.brand{font-weight:900;color:var(--gold);font-size:18px}
+.searchPro{flex:1;max-width:600px;display:flex;gap:8px;background:var(--c1);border:1px solid var(--line);border-radius:999px;padding:6px 6px 6px 16px;align-items:center}
+.searchPro input{flex:1;background:transparent;border:0;outline:0;color:#fff;font-size:14px}
+.qBtn{background:var(--gold);color:#000;border:0;border-radius:999px;padding:8px 16px;font-weight:800;cursor:pointer}
+.partition{display:flex;gap:8px;overflow:auto;padding:12px 0 6px}
+.tab{white-space:nowrap;padding:8px 16px;border-radius:999px;border:1px solid var(--line);background:rgba(255,255,255,.04);cursor:pointer;font-weight:700;font-size:13px;color:var(--muted)}
+.tab.active{background:var(--gold);color:#000;border-color:transparent}
+.card{background:linear-gradient(180deg,var(--c1),#0a1936);border:1px solid var(--line);border-radius:var(--r);padding:14px}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+.videoBox{aspect-ratio:16/9;background:#000;border-radius:12px;overflow:hidden;position:relative}
+.videoBox iframe{width:100%;height:100%;border:0}
+.quality{position:absolute;top:8px;right:8px;display:flex;gap:4px;z-index:2}
+.q{font-size:10px;padding:4px 8px;border-radius:99px;background:rgba(0,0,0,.7);color:#fff;border:1px solid var(--line);cursor:pointer}
+.q.active{background:var(--em);color:#000}
+.surah{padding:10px;background:rgba(255,255,255,.04);border-radius:10px;cursor:pointer;border:1px solid transparent;font-size:13px}
+.surah:hover{border-color:var(--gold)}
+.hide{display:none!important}
+@media(max-width:900px){.grid3,.grid4{grid-template-columns:1fr 1fr}}
 </style>
 </head>
 <body>
+<div class="header">
+  <div class="wrap topRow">
+    <a href="index.html" class="brand">← TAQWA X1</a>
+    <div class="searchPro">
+      <span>🔍</span>
+      <input id="globalSearch" placeholder="Search everything - Quran, Hadith, Madrasa, Fiqh, Waz... 198 Desh" oninput="globalFilter()">
+      <button class="qBtn" onclick="globalFilter()">Search</button>
+    </div>
+    <div style="display:flex;gap:6px">
+      <select id="qualitySel" style="background:var(--c1);color:#fff;border:1px solid var(--line);border-radius:99px;padding:8px">
+        <option>Quality: Auto</option><option>1080p HD</option><option>720p</option><option>480p Data Saver</option>
+      </select>
+    </div>
+  </div>
+  <div class="wrap partition" id="partition">
+    <div class="tab active" onclick="setTab('all')">All • সব</div>
+    <div class="tab" onclick="setTab('quran')">📖 Quran • 114 Surah</div>
+    <div class="tab" onclick="setTab('hadith')">📚 Hadith • 6 Books</div>
+    <div class="tab" onclick="setTab('madrasa')">🕌 Madrasa • মাদ্রাসা</div>
+    <div class="tab" onclick="setTab('channels')">📺 Channels • আলাদা</div>
+    <div class="tab" onclick="setTab('fiqh')">⚖️ Fiqh • ফিকহ</div>
+  </div>
+</div>
 
-<div class="card" style="border-color:red">
-<h3 style="text-align:center;color:red">🔴 LIVE NOW - সরাসরি</h3>
-<div style="position:relative">
-<iframe class="live" style="width:100%;height:240px;border-radius:14px;border:2px solid gold" src="https://www.youtube.com/embed/9q1V2Q5r0rE?autoplay=1&mute=1&controls=1&rel=0" allow="autoplay; fullscreen" allowfullscreen></iframe>
-<span style="position:absolute;top:10px;left:10px;background:red;color:#fff;padding:4px 10px;border-radius:20px;font-size:12px;font-weight:bold">🕋 MAKKAH LIVE</span>
-</div>
-<div style="position:relative;margin-top:15px">
-<iframe class="live" style="width:100%;height:240px;border-radius:14px;border:2px solid gold" src="https://www.youtube.com/embed/XaYh0xkw0a0?autoplay=1&mute=1&controls=1&rel=0" allow="autoplay; fullscreen" allowfullscreen></iframe>
-<span style="position:absolute;top:10px;left:10px;background:green;color:#fff;padding:4px 10px;border-radius:20px;font-size:12px;font-weight:bold">🕌 MADINA LIVE</span>
-</div>
-<p style="text-align:center;font-size:12px;margin-top:8px">Sound না আসলে Video তে Tap করে Unmute করো 🔊</p>
-</div>
+<main class="wrap" style="padding:16px">
 
-<div class="card">
-<h3>🎙️ দেশি-বিদেশি ইসলামিক স্কলার</h3>
-<p>মক্কা-মদিনা সহ বিশ্বের সকল স্কলারদের লাইভ বয়ান এখানে আসবে</p>
-</div>
+  <!-- QURAN PARTITION -->
+  <section id="sec-quran" class="card">
+    <div style="display:flex;justify-content:space-between"><b style="color:var(--gold)">📖 Quran - 114 Surah - 198 Desh Translation</b><span style="color:var(--muted);font-size:12px" id="quranCount">114 Surah</span></div>
+    <div id="quranGrid" class="grid4" style="margin-top:10px;max-height:420px;overflow:auto"></div>
+  </section>
 
-<div class="card">
-<h3>📖 Quran & Dua</h3>
-<a href="index.html" style="color:gold">← Back to Home</a>
-</div>
+  <!-- HADITH PARTITION -->
+  <section id="sec-hadith" class="grid3" style="margin-top:14px">
+    <div class="card"><b>📚 Bukhari</b><div style="color:var(--muted);font-size:12px">7563 Hadith - 198 Desh</div><div style="margin-top:8px;display:flex;gap:6px"><span class="q active">Arabic</span><span class="q">Bangla</span><span class="q">English</span></div></div>
+    <div class="card"><b>📚 Muslim</b><div style="color:var(--muted);font-size:12px">7190 Hadith</div><div style="margin-top:8px;display:flex;gap:6px"><span class="q active">Arabic</span><span class="q">Bangla</span></div></div>
+    <div class="card"><b>📚 4 Sunan</b><div style="color:var(--muted);font-size:12px">Tirmidhi, Abu Dawood, Nasai, Ibn Majah</div></div>
+  </section>
 
-</body>
-</html>
+  <!-- MADRASA PARTITION -->
+  <section id="sec-madrasa" class="card" style="margin-top:14px">
+    <b style="color:var(--gold)">🕌 Madrasa Partition - আলাদা বিভাগ</b>
+    <div class="grid3" style="margin-top:10px">
+      <div class="card"><b>Hifz</b><br><small>30 Para, Tracker, Audio</small></div>
+      <div class="card"><b>Qawmi</b><br><small>Mizan, Nahbemeer, Hidayah, Jalalain, Mishkat, Dawra</small></div>
+      <div class="card"><b>Alia</b><br><small>Class 6-10, Alim, Fazil, Kamil</small></div>
+      <div class="card"><b>Nurani</b><br><small>Qaida, Ampara</small></div>
+      <div class="card"><b>Arabic Grammar</b><br><small>Nahu, Sarf, Balagat</small></div>
+      <div class="card"><b>Live Dars</b><br><small>Hathazari, Patiya Live</small></div>
+    </div>
+  </section>
+
+  <!-- CHANNELS PARTITION - ALADA -->
+  <section id="sec-channels" style="margin-top:14px">
+    <div class="card"><b style="color:var(--gold)">📺 Islamic Channels - আলাদা - Quality Control</b>
+      <div class="grid3" style="margin-top:10px">
+        <div class="card" style="padding:0;overflow:hidden">
+          <div style="padding:10px"><b>Makkah Live</b> <span style="color:var(--em)">● LIVE</span></div>
+          <div class="videoBox"><div class="quality"><span class="q active">Auto</span><span class="q">720p</span></div><iframe src="https://www.youtube-nocookie.com/embed/live_stream?channel=UCos52azQNBgW63_9uDJoPDA" loading="lazy" allowfullscreen></iframe></div>
+        </div>
+        <div class="card" style="padding:0;overflow:hidden">
+          <div style="padding:10px"><b>Madina Live</b> <span style="color:var(--em)">● LIVE</span></div>
+          <div class="videoBox"><div class="quality"><span class="q active">Auto</span></div><iframe src="https://www.youtube-nocookie.com/embed/live_stream?channel=UCROKYPep-UuODNwyipe6JMw" loading="lazy" allowfullscreen></iframe></div>
+        </div>
+        <div class="card" style="padding:0;overflow:hidden">
+          <div style="padding:10px"><b>Quran 24/7</b></div>
+          <div class="videoBox"><div class="quality"><span class="q active">HD</span></div><iframe src="https://www.youtube-nocookie.com/embed/1s5kHSe4b_g" loading="lazy" allowfullscreen></iframe></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FIQH PARTITION -->
+  <section id="sec-fiqh" class="card" style="margin-top:14px">
+    <b style="color:var(--gold)">⚖️ Fiqh & Fatwa - 4 Mazhab - 198 Desh</b>
+    <div class="grid3" style="margin-top:10px">
+      <div class="card">Hanafi<br><small>Most common in BD</small></div>
+      <div class="card">Shafi'i<br><small>Malaysia, Indonesia</small></div>
+      <div class="card">Maliki & Hanbali</div>
+    </div>
+  </section>
+
+</main>
+
+<script>
+const surahs=["Fatiha","Baqarah","Imran","Nisa","Ma'idah","An'am","A'raf","Anfal","Tawbah","Yunus","Hud","Yusuf","Ra'd","Ibrahim","Hijr","Nahl","Isra","Kahf","Maryam","Ta-Ha","Anbya","Hajj","Mu'minun","Nur","Furqan","Shu'ara","Naml","Qasas","Ankabut","Rum","Luqman","Sajdah","Ahzab","Saba","Fatir
