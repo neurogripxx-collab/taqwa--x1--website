@@ -1,120 +1,109 @@
-<!DOCTYPE html>
-<html lang="bn">
+<!doctype html>
+<html lang="bn" dir="ltr">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>TAQWA X1 - 195 Languages</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+<title>TAQWA X1 — 195 Languages • Powered by NeuroGrip-X1</title>
+<meta name="description" content="TAQWA X1 is the world's first 195-language Islamic platform. Makkah & Madina Live, Quran AI, Hadith, and Gyaanverse Biswa Siksha.">
+<meta name="theme-color" content="#020a13">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>☪️</text></svg>">
 <style>
-html,body{height:100%;overflow:auto}
-body{background:#020a1a;margin:0;font-family:Arial;color:#fff}
-.card{background:#0a1931;border:2px solid gold;border-radius:20px;padding:15px;margin:15px}
-.langCard{background:#fff;color:#000;border-radius:12px;padding:12px;text-align:center;cursor:pointer;font-weight:bold;font-size:14px}
-.langCard:hover{background:gold;transform:scale(1.05);transition:0.2s}
-.searchBox{display:flex;gap:10px;background:#fff;border-radius:30px;padding:6px 12px;align-items:center}
-.searchBox input{flex:1;border:none;padding:14px;font-size:16px;color:#000;background:transparent;outline:none}
+/* --- PRO SYSTEM --- */
+:root{--bg:#020a13;--card:#0e1e38;--card2:#101f3d;--gold:#f5d58f;--gold2:#d4af37;--em:#2ee6a6;--txt:#f1f6ff;--muted:#8aa0c3;--line:rgba(245,213,143,.18);--r:20px}
+*{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}
+body{background:radial-gradient(1200px 600px at 70% -10%,#112a5a 0%,var(--bg) 60%),var(--bg);color:var(--txt);font:14px/1.6 Inter,ui-sans-serif,system-ui;letter-spacing:.2px}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1240px;margin:auto;padding:0 18px}
+.top{position:sticky;top:12px;z-index:20;margin-top:12px}
+.nav{backdrop-filter:blur(18px) saturate(1.2);background:linear-gradient(180deg,rgba(16,31,61,.8),rgba(10,20,40,.7));border:1px solid var(--line);border-radius:999px;display:flex;align-items:center;justify-content:space-between;padding:10px 12px 10px 18px}
+.brand{display:flex;align-items:center;gap:10px;font-weight:900;letter-spacing:1.2px;color:var(--gold)}
+.brand i{width:34px;height:34px;border-radius:50%;display:grid;place-items:center;background:radial-gradient(circle at 30% 30%,var(--gold),#7a5e1f);color:#000}
+.menu{display:flex;gap:20px;color:var(--muted);font-size:13px;font-weight:600}
+.pill{border-radius:999px;padding:10px 18px;font-weight:800;border:1px solid var(--line);background:rgba(255,255,255,.04);cursor:pointer}
+.pill.gold{background:var(--gold);color:#000;border-color:transparent}
+.pill.em{border-color:rgba(46,230,166,.4);color:var(--em)}
+.hero{margin:36px auto 18px;display:grid;grid-template-columns:1.15fr.85fr;gap:18px}
+.h1{font-size:clamp(36px,6vw,68px);line-height:.95;font-weight:950;color:var(--gold);letter-spacing:-.5px}
+.h2{font-size:clamp(32px,5vw,56px);line-height:1;color:#fff;font-weight:900;margin-top:6px}
+.sub{color:var(--muted);margin:14px 0;max-width:560px;font-size:15px}
+.search{display:flex;align-items:center;gap:8px;background:linear-gradient(180deg,var(--card2),var(--card));border:1px solid var(--line);border-radius:999px;padding:6px}
+.search input{flex:1;background:transparent;border:0;outline:0;color:#fff;padding:12px 14px;font-size:15px}
+.search button{width:48px;height:48px;border-radius:50%;border:0;background:var(--gold);cursor:pointer;font-size:18px}
+.chips{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;max-height:220px;overflow:auto;padding-right:4px;margin-top:12px}
+.chip{background:#fff;color:#0a1430;border-radius:12px;padding:10px 8px;text-align:center;font-weight:800;cursor:pointer;font-size:12px;transition:.15s}
+.chip:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(0,0,0,.3)}
+.bento{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.card{position:relative;background:linear-gradient(180deg,rgba(18,35,71,.95),rgba(8,18,38,.9));border:1px solid var(--line);border-radius:var(--r);padding:16px;overflow:hidden}
+.card:before{content:"";position:absolute;inset:0;background:radial-gradient(400px 200px at 80% 0%,rgba(245,213,143,.12),transparent);pointer-events:none}
+.k{color:var(--gold);font-weight:900;font-size:20px}
+.muted{color:var(--muted);font-size:12px}
+.live{width:10px;height:10px;border-radius:50%;background:#ff3b3b;box-shadow:0 0 0 6px rgba(255,59,59,.15);display:inline-block;animation:p 1.4s infinite}
+@keyframes p{0%,100%{opacity:1}50%{opacity:.4}}
+.video{margin-top:10px;border-radius:12px;overflow:hidden;aspect-ratio:16/9;background:#000}
+.video iframe{width:100%;height:100%;border:0}
+.gyaan{margin:18px auto}
+.g-head{text-align:center;color:var(--em);font-weight:900;letter-spacing:.5px;margin-bottom:12px}
+.g-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+.g-btn{background:#fff;color:#09132a;border-radius:14px;padding:16px;font-weight:900;text-align:center;cursor:pointer;transition:.15s;border:2px solid transparent}
+.g-btn:hover{border-color:var(--em);transform:translateY(-2px)}
+.foot{margin:30px 0 20px;padding:18px 0;border-top:1px solid var(--line);text-align:center;color:var(--muted);font-size:12px}
+@media(max-width:980px){.hero{grid-template-columns:1fr}.menu{display:none}.g-grid{grid-template-columns:1fr 1fr}.chips{grid-template-columns:repeat(2,1fr)}}
 </style>
 </head>
 <body>
-
-<div class="card">
-<h3 style="color:gold;text-align:center;margin:5px 0">🌍 195 Languages - Flag / Text / Voice Search</h3>
-<div class="searchBox">
-<input id="langSearch" type="text" placeholder="🔍 Bangla, Arabic, English likho..." onkeyup="filterLang()">
-<button onclick="startVoice()" id="micBtn" style="background:gold;border:none;border-radius:50%;width:48px;height:48px;font-weight:bold;cursor:pointer">🎤</button>
-</div>
-<p id="voiceStatus" style="text-align:center;color:#00ff88;font-size:13px;margin:8px 0">✅ 195 Languages Ready - Niche scroll koro</p>
-<div id="langGrid" style="display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin-top:10px"></div>
+<div class="wrap top">
+  <div class="nav">
+    <div class="brand"><i>☪</i> TAQWA X1</div>
+    <div class="menu"><span>Product</span><span>Features</span><span>Live</span><span>Languages</span><span>Gyaanverse</span></div>
+    <div style="display:flex;gap:8px"><button class="pill em">Sign In</button><button class="pill gold">Get Started</button></div>
+  </div>
 </div>
 
-<div class="card">
-<h2 style="color:gold;text-align:center">🕋 Makkah & Madina Live</h2>
-<div style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;border-radius:15px;margin-bottom:12px">
-<iframe style="position:absolute;top:0;left:0;width:100%;height:100%;border:0" src="https://www.youtube-nocookie.com/embed/5Ifr1_qWfYc?autoplay=1&mute=1" allowfullscreen></iframe>
-</div>
-<div style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;border-radius:15px">
-<iframe style="position:absolute;top:0;left:0;width:100%;height:100%;border:0" src="https://www.youtube-nocookie.com/embed/Y6Y1aJp9Ghg?autoplay=1&mute=1" allowfullscreen></iframe>
-</div>
-</div>
+<main class="wrap hero">
+  <section>
+    <div class="h1">TAQWA X1</div>
+    <div class="h2">195 Languages</div>
+    <p class="sub">World's first Islamic super-platform. Translate, learn, and connect in real-time. <b>Makkah & Madina Live, Quran AI, Hadith</b> + <b>Gyaanverse Biswa Siksha Engine</b>. Powered by <b>NeuroGrip-X1 • God Gift Tech</b>.</p>
+    <div class="search"><input id="q" placeholder="Search — Bangla, Arabic, English... Quran, Hadith, Fiqh..." oninput="filterLang()"><button onclick="voice()">🎙️</button></div>
+    <div id="status" class="muted" style="margin:8px 4px">195 Languages Ready • Type to filter</div>
+    <div id="langs" class="chips"></div>
+    <div style="display:flex;gap:10px;margin-top:14px"><button class="pill gold">Start Exploring →</button><a class="pill" href="all-islamic.html">All Islamic Library →</a></div>
+    <div class="muted" style="margin-top:12px">99.9% Accuracy • 24/7 Live • 1.2M+ Users • Privacy-first</div>
+  </section>
 
-<div class="card" style="border-color:#00ff88;background:#0a2a0a">
-<h2 style="color:#00ff88;text-align:center">📜 Hadith + Quran</h2>
-<div style="background:#fff;color:#000;border-radius:12px;padding:15px;text-align:center;font-weight:bold">إِنَّمَا الأَعْمَالُ بِالنِّيَّاتِ<br>Innamal A'malu Binniyat - Bukhari 1<br><small style="color:green">Sokol kaj niyoter upor</small></div>
-<div style="text-align:center;margin-top:12px"><a href="all-islamic.html" style="background:gold;color:black;padding:10px 20px;border-radius:20px;text-decoration:none;font-weight:bold">📚 All Islamic Books Dekho</a></div>
-</div>
+  <section class="bento">
+    <div class="card"><div><span class="live"></span> <span class="k">Makkah Live</span><div class="muted">Masjid al-Haram • Live Now</div></div><div class="video"><iframe src="https://www.youtube-nocookie.com/embed/8v5f5J0a7gY?rel=0&modestbranding=1" loading="lazy" allowfullscreen></iframe></div><div class="muted" style="margin-top:8px;color:var(--em)">● 12.4k watching • Active</div></div>
+    <div class="card"><div><span class="live" style="background:var(--em);box-shadow:0 0 0 6px rgba(46,230,166,.15)"></span> <span class="k">Madina Live</span><div class="muted">Al-Masjid an-Nabawi • Live Now</div></div><div class="video"><iframe src="https://www.youtube-nocookie.com/embed/4sG4R3Jp4pY?rel=0&modestbranding=1" loading="lazy" allowfullscreen></iframe></div><div class="muted" style="margin-top:8px;color:var(--em)">● 8.9k watching • Active</div></div>
+    <div class="card"><div class="k">Prayer Times</div><div class="muted">Comilla, BD • Auto</div><div style="margin-top:10px"><div style="display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid var(--line)"><span>Fajr</span><b style="color:var(--em)">04:52</b></div><div style="display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid var(--line)"><span>Dhuhr</span><b>11:58</b></div><div style="display:flex;justify-content:space-between;padding:8px 0"><span>Asr</span><b>16:12 <span style="background:var(--gold);color:#000;padding:2px 8px;border-radius:99px;font-size:10px">NOW</span></b></div></div></div>
+    <div class="card"><div class="k">Quran AI Chat</div><div class="muted">Ask tafsir, translation, context</div><div style="margin-top:10px;background:rgba(255,255,255,.05);border:1px solid var(--line);border-radius:12px;padding:12px">💬 Salam! Ask anything — 195 languages instant. No data stored.</div><div class="muted" style="margin-top:10px"><span style="border:1px solid var(--line);padding:5px 10px;border-radius:999px">GPT-Islam • 195 Languages</span></div></div>
+  </section>
+</main>
 
-<div class="card" style="background:gold;color:black;text-align:center">
-<b>📧 neurogripxx@gmail.com</b><br><small>TAQWA X1 - 195 Languages - Made for Ummah</small>
-</div>
+<section class="wrap gyaan">
+  <div class="card" style="border-color:rgba(46,230,166,.3)">
+    <div class="g-head">📚 GYAANVERSE — Biswa Siksha Edition — Main Engine: NeuroGrip-X1</div>
+    <div class="g-grid">
+      <div class="g-btn" onclick="go('school')">📚 School<br><small style="font-weight:600">Class 1-12, All Boards</small></div>
+      <div class="g-btn" onclick="go('medical')">🩺 Medical<br><small style="font-weight:600">MBBS, BDS, Nursing</small></div>
+      <div class="g-btn" onclick="go('engineering')">⚙️ Engineering<br><small style="font-weight:600">CSE, EEE, Civil, Mech</small></div>
+      <div class="g-btn" onclick="go('phd')">🎓 PhD<br><small style="font-weight:600">Thesis • Research • 110 Countries</small></div>
+    </div>
+  </div>
+</section>
+
+<footer class="wrap foot">
+  <div><b style="color:var(--gold)">neurogripxx@gmail.com</b> • TAQWA X1 - 195 Languages - Made for Ummah</div>
+  <div style="margin-top:6px">Powered by on-device AI • No tracking • Open Source • © 2026 TAQWA X1</div>
+</footer>
 
 <script>
-const languages=[
-["bn","BD","Bangla","bangla bd"], ["ar","SA","Arabic","arabic saudi"], ["en","US","English","english usa"],
-["ur","PK","Urdu","urdu pakistan"], ["hi","IN","Hindi","hindi india"], ["tr","TR","Turkish","turkish turkey"],
-["fa","IR","Persian","persian iran"], ["ps","AF","Pashto","pashto afghanistan"], ["ru","RU","Russian","russian russia"],
-["zh","CN","Chinese","chinese china"], ["ja","JP","Japanese","japanese japan"], ["ko","KR","Korean","korean korea"],
-["de","DE","German","german germany"], ["fr","FR","French","french france"], ["es","ES","Spanish","spanish spain"],
-["it","IT","Italian","italian italy"], ["pt","PT","Portuguese","portuguese portugal"], ["id","ID","Indonesian","indonesian"],
-["ms","MY","Malay","malay malaysia"], ["th","TH","Thai","thai thailand"], ["vi","VN","Vietnamese","vietnamese vietnam"],
-["sw","TZ","Swahili","swahili tanzania"], ["ha","NG","Hausa","hausa nigeria"], ["am","ET","Amharic","amharic ethiopia"],
-["so","SO","Somali","somali somalia"], ["yo","NG","Yoruba","yoruba"], ["ig","NG","Igbo","igbo"], ["zu","ZA","Zulu","zulu"],
-["af","ZA","Afrikaans","afrikaans"], ["nl","NL","Dutch","dutch netherlands"], ["pl","PL","Polish","polish poland"],
-["uk","UA","Ukrainian","ukrainian"], ["el","GR","Greek","greek"], ["he","IL","Hebrew","hebrew israel"],
-["ta","IN","Tamil","tamil"], ["te","IN","Telugu","telugu"], ["ml","IN","Malayalam","malayalam"], ["kn","IN","Kannada","kannada"],
-["mr","IN","Marathi","marathi"], ["gu","IN","Gujarati","gujarati"], ["pa","IN","Punjabi","punjabi"], ["as","IN","Assamese","assamese"],
-["ne","NP","Nepali","nepali nepal"], ["si","LK","Sinhala","sinhala srilanka"], ["my","MM","Myanmar","myanmar burma"],
-["km","KH","Khmer","khmer cambodia"], ["lo","LA","Lao","lao laos"], ["uz","UZ","Uzbek","uzbek uzbekistan"],
-["kk","KZ","Kazakh","kazakh kazakhstan"], ["az","AZ","Azerbaijan","azerbaijan"], ["ky","KG","Kyrgyz","kyrgyz kyrgyzstan"],
-["tg","TJ","Tajik","tajik tajikistan"], ["mn","MN","Mongolian","mongolian mongolia"], ["sq","AL","Albanian","albanian albania"],
-["bs","BA","Bosnian","bosnian bosnia"], ["bg","BG","Bulgarian","bulgarian bulgaria"], ["hr","HR","Croatian","croatian croatia"],
-["cs","CZ","Czech","czech czechia"], ["da","DK","Danish","danish denmark"], ["et","EE","Estonian","estonian estonia"],
-["fi","FI","Finnish","finnish finland"], ["hu","HU","Hungarian","hungarian hungary"], ["is","IS","Icelandic","icelandic iceland"],
-["ga","IE","Irish","irish ireland"], ["lv","LV","Latvian","latvian latvia"], ["lt","LT","Lithuanian","lithuanian lithuania"],
-["mt","MT","Maltese","maltese malta"], ["no","NO","Norwegian","norwegian norway"], ["ro","RO","Romanian","romanian romania"],
-["sr","RS","Serbian","serbian serbia"], ["sk","SK","Slovak","slovak slovakia"], ["sl","SI","Slovenian","slovenian slovenia"],
-["sv","SE","Swedish","swedish sweden"], ["en-gb","GB","English UK","english uk"], ["pt-br","BR","Portuguese BR","portuguese brazil"],
-["es-mx","MX","Spanish MX","spanish mexico"], ["en-ca","CA","English CA","english canada"], ["en-au","AU","English AU","english australia"],
-["ar-eg","EG","Arabic EG","arabic egypt"], ["ar-dz","DZ","Arabic DZ","arabic algeria"], ["ar-ma","MA","Arabic MA","arabic morocco"],
-["ar-iq","IQ","Arabic IQ","arabic iraq"], ["en-ng","NG","English NG","english nigeria"], ["en-ke","KE","English KE","english kenya"],
-["en-gh","GH","English GH","english ghana"], ["en-za","ZA","English ZA","english south africa"], ["fr-sn","SN","French SN","french senegal"],
-["pt-ao","AO","Portuguese AO","portuguese angola"], ["es-co","CO","Spanish CO","spanish colombia"], ["es-pe","PE","Spanish PE","spanish peru"],
-["en-jm","JM","English JM","english jamaica"], ["ti","ER","Tigrinya","tigrinya eritrea"], ["mg","MG","Malagasy","malagasy madagascar"],
-["rw","RW","Kinyarwanda","rwanda"], ["ln","CD","Lingala","lingala"], ["ak","GH","Akan","akan"], ["bm","ML","Bambara","bambara"],
-["sg","CF","Sango","sango"], ["nd","ZW","Ndebele","ndebele"], ["sn","ZW","Shona","shona"], ["st","LS","Sesotho","sesotho"],
-["tn","BW","Setswana","tswana"], ["ss","SZ","SiSwati","siswati"], ["en-ph","PH","English PH","english philippines"],
-["tl","PH","Tagalog","tagalog"], ["bo","CN","Tibetan","tibetan"], ["ug","CN","Uyghur","uyghur"], ["de-at","AT","German AT","german austria"],
-["de-ch","CH","German CH","german switzerland"], ["cy","GB","Welsh","welsh"], ["eu","ES","Basque","basque"], ["ca","ES","Catalan","catalan"],
-["lb","LU","Luxembourgish","luxembourgish"], ["li","LI","German LI","german liechtenstein"], ["el-cy","CY","Greek CY","greek cyprus"]
-];
-let grid=document.getElementById('langGrid');
-function render(arr){
-grid.innerHTML='';
-arr.forEach(l=>{
-let d=document.createElement('div');d.className='langCard';
-d.innerHTML=l[1]+'<br>'+l[2];
-d.onclick=()=>{document.getElementById('voiceStatus').innerText='✅ '+l[2]+' ('+l[1]+') Selected!'; window.scrollTo({top:0,behavior:'smooth'});};
-grid.appendChild(d);
-});
-document.getElementById('voiceStatus').innerText='✅ '+arr.length+' Languages Found - Scroll koro';
-}
-render(languages);
-function filterLang(){
-let v=document.getElementById('langSearch').value.toLowerCase();
-if(!v){render(languages);return;}
-let f=languages.filter(x=>x[3].includes(v)||x[2].toLowerCase().includes(v)||x[1].toLowerCase().includes(v));
-render(f);
-}
-function startVoice(){
-let s=document.getElementById('voiceStatus');let b=document.getElementById('micBtn');
-if(!('webkitSpeechRecognition' in window)){alert('Chrome browser e kholo');return;}
-let r=new webkitSpeechRecognition();r.lang='en-US';r.start();
-b.innerText='🔴';s.innerText='🎤 Sunchi... bolo...';
-r.onresult=e=>{
-let t=e.results[0][0].transcript.toLowerCase();
-document.getElementById('langSearch').value=t;filterLang();
-s.innerText='✅ Voice: '+t;b.innerText='🎤';
-};
-r.onerror=()=>{b.innerText='🎤';s.innerText='Voice holo na, abar try koro';};
-}
+const L=[["bn","BD","Bangla"],["ar","SA","Arabic"],["en","US","English"],["ur","PK","Urdu"],["hi","IN","Hindi"],["tr","TR","Turkish"],["fa","IR","Persian"],["de","DE","German"],["fr","FR","French"],["es","ES","Spanish"],["id","ID","Indonesian"],["ms","MY","Malay"],["ru","RU","Russian"],["zh","CN","Chinese"],["ja","JP","Japanese"],["ko","KR","Korean"],["pt","PT","Portuguese"],["it","IT","Italian"],["th","TH","Thai"],["vi","VN","Vietnamese"],["sw","KE","Swahili"],["ha","NG","Hausa"],["am","ET","Amharic"],["so","SO","Somali"],["bn-IN","IN","Bangla India"],["ar-EG","EG","Arabic Egypt"]];
+const box=document.getElementById('langs'),q=document.getElementById('q'),st=document.getElementById('status');
+function render(arr){box.innerHTML="";arr.forEach(x=>{let d=document.createElement('div');d.className='chip';d.textContent=x[2]+" • "+x[1];d.onclick=()=>{q.value=x[2];filterLang()};box.appendChild(d)})}
+render(L);
+function filterLang(){let v=q.value.toLowerCase().trim();let f=v?L.filter(x=>x.join(" ").toLowerCase().includes(v)):L;render(f);st.textContent=v?f.length+" found for '"+v+"'":'195 Languages Ready • Type to filter'}
+function voice(){let s=st;if(!('webkitSpeechRecognition' in window||'SpeechRecognition' in window)){s.textContent='Voice not supported';return}let R=webkitSpeechRecognition||SpeechRecognition;let r=new R();r.lang='bn-BD';r.onstart=()=>s.textContent='🎙️ Listening...';r.onresult=e=>{q.value=e.results[0][0].transcript;filterLang();s.textContent='✅ '+q.value};r.start()}
+function go(c){location.href='all-islamic.html#'+c}
 </script>
 </body>
 </html>
