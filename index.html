@@ -2,419 +2,191 @@
 <html lang="bn">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
 <title>NIVO 155</title>
 
+<script src="https://unpkg.com/peerjs@1.5.4/dist/peerjs.min.js"></script>
+
 <style>
-*{
-  box-sizing:border-box;
-}
-
-html{
-  scroll-behavior:smooth;
-}
-
+*{box-sizing:border-box}
 body{
   margin:0;
   background:#061022;
   color:#fff;
-  font-family:Arial,"Noto Sans Bengali",sans-serif;
+  font-family:Arial,"Noto Sans Bengali",sans-serif
 }
-
-button{
-  font-family:inherit;
-  cursor:pointer;
-}
-
+button{font-family:inherit;cursor:pointer}
 header{
-  position:sticky;
-  top:0;
-  z-index:999;
-  background:#0d1b36f7;
-  backdrop-filter:blur(15px);
+  position:sticky;top:0;z-index:10;
+  background:#0d1b36f5;
   border-bottom:1px solid #ffffff20;
-  padding:15px;
+  padding:14px
 }
-
 .top{
-  max-width:1050px;
-  margin:auto;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:15px;
+  max-width:1050px;margin:auto;
+  display:flex;align-items:center;
+  justify-content:space-between
 }
-
-.brand{
-  display:flex;
-  align-items:center;
-  gap:14px;
-}
-
+.brand{display:flex;align-items:center;gap:12px}
 .logo{
-  width:64px;
-  height:64px;
-  border-radius:18px;
-  background:#ffd77a;
-  color:#07101f;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-size:40px;
-  font-weight:900;
+  width:58px;height:58px;border-radius:17px;
+  background:#ffd77a;color:#07101f;
+  display:grid;place-items:center;
+  font-size:35px;font-weight:900
 }
-
-.brand h1{
-  margin:0;
-  font-size:28px;
-  letter-spacing:5px;
-}
-
-.online{
-  color:#42e8ad;
-  font-weight:bold;
-  font-size:15px;
-}
-
+.brand h1{margin:0;letter-spacing:4px}
+.online{color:#42e8ad;font-weight:bold}
 nav{
-  max-width:1050px;
-  margin:14px auto 0;
-  display:flex;
-  gap:10px;
-  overflow-x:auto;
-  scrollbar-width:none;
+  max-width:1050px;margin:12px auto 0;
+  display:flex;gap:8px;overflow-x:auto
 }
-
-nav::-webkit-scrollbar{
-  display:none;
-}
-
 nav button{
   flex-shrink:0;
-  padding:12px 25px;
-  border-radius:30px;
+  padding:10px 18px;border-radius:25px;
   border:1px solid #ffffff25;
-  background:#0b1932;
-  color:#c6d0e2;
-  font-size:17px;
+  background:#0b1932;color:#c6d0e2
 }
-
 nav button.active{
-  background:#ffd77a;
-  color:#111a29;
-  font-weight:bold;
+  background:#ffd77a;color:#111827;font-weight:bold
 }
-
 main{
-  max-width:1050px;
-  margin:auto;
-  padding:30px 16px 80px;
+  max-width:1050px;margin:auto;
+  padding:25px 15px 70px
 }
-
-.panel{
-  display:none;
-}
-
-.panel.active{
-  display:block;
-}
-
-.hero,
-.card,
-.stat{
+.panel{display:none}
+.panel.active{display:block}
+.hero,.card{
   background:#0d1c39;
   border:1px solid #ffffff20;
-  border-radius:30px;
-  box-shadow:0 15px 45px #0006;
+  border-radius:28px;
+  box-shadow:0 12px 35px #0006
 }
-
-.hero{
-  padding:40px 32px;
-}
-
+.hero{padding:35px 25px}
 .eyebrow{
   color:#42e8ad;
   font-weight:900;
-  letter-spacing:4px;
-  line-height:1.7;
+  letter-spacing:3px
 }
-
 .hero h2{
-  font-size:clamp(42px,8vw,76px);
-  line-height:1.08;
-  margin:25px 0;
+  font-size:clamp(40px,8vw,70px);
+  line-height:1.1
 }
-
-.hero p{
+.hero p,.card p{
   color:#c7d1e2;
-  font-size:20px;
   line-height:1.7;
+  font-size:18px
 }
-
 .actions{
   display:flex;
+  gap:10px;
   flex-wrap:wrap;
-  gap:12px;
-  margin-top:22px;
+  margin-top:20px
 }
-
-.primary,
-.secondary{
-  padding:14px 24px;
-  border-radius:30px;
-  font-size:17px;
+.primary,.secondary,.danger{
+  padding:13px 20px;
+  border-radius:28px;
   font-weight:bold;
+  border:0
 }
-
-.primary{
-  background:#ffd77a;
-  color:#101827;
-  border:0;
-}
-
+.primary{background:#ffd77a;color:#111827}
 .secondary{
-  background:#0b1b38;
-  color:#fff;
-  border:1px solid #ffffff30;
+  background:#0b1b38;color:white;
+  border:1px solid #ffffff30
 }
-
-.globe{
-  text-align:center;
-  font-size:120px;
-  margin-top:25px;
-}
-
-.stats{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:18px;
-  margin:22px 0;
-}
-
-.stat{
-  padding:28px;
-}
-
-.num{
-  font-size:55px;
-  color:#ffd77a;
-  font-weight:900;
-}
-
-.label{
-  font-size:19px;
-}
-
-.section{
-  font-size:38px;
-  margin:45px 0 20px;
-}
-
+.danger{background:#d9534f;color:white}
+.globe{text-align:center;font-size:100px}
+.section{font-size:35px;margin:35px 0 18px}
 .grid{
   display:grid;
   grid-template-columns:repeat(2,1fr);
-  gap:18px;
+  gap:16px
 }
-
-.card{
-  padding:30px;
-}
-
-.icon{
-  font-size:52px;
-}
-
-.card h3{
-  font-size:30px;
-  margin:15px 0;
-}
-
-.card p{
-  color:#c4cede;
-  font-size:19px;
-  line-height:1.7;
-}
-
-input,
-textarea,
-select{
+.card{padding:25px}
+.icon{font-size:45px}
+input,textarea,select{
   width:100%;
-  padding:15px;
-  margin:8px 0;
-  border-radius:15px;
-  border:1px solid #ffffff30;
-  background:#07152d;
-  color:#fff;
-  font-size:17px;
-  outline:none;
+  padding:14px;
+  margin:7px 0;
+  border-radius:13px;
+  border:1px solid #ffffff25;
+  background:#07152d;color:white;
+  font-size:16px
 }
-
-textarea{
-  min-height:150px;
-  resize:vertical;
-}
-
-input:focus,
-textarea:focus,
-select:focus{
-  border-color:#42e8ad;
-}
-
-.result{
-  margin-top:15px;
-  padding:18px;
-  border-radius:15px;
-  background:#07152d;
-  border:1px solid #ffffff20;
-  color:#dce6f6;
-  min-height:65px;
-  line-height:1.7;
-  word-break:break-word;
-}
-
-.loading{
-  color:#ffd77a;
-}
-
 .chat{
-  height:330px;
+  height:280px;
   overflow:auto;
   background:#07152d;
-  padding:15px;
-  border-radius:18px;
-  border:1px solid #ffffff20;
+  border-radius:15px;
+  padding:12px
 }
-
 .msg{
   background:#132747;
-  padding:11px 15px;
-  margin:9px 0;
-  border-radius:16px;
-  max-width:85%;
-  line-height:1.5;
+  padding:10px 13px;
+  margin:7px 0;
+  border-radius:14px;
+  max-width:85%
 }
+.msg.me{margin-left:auto;background:#235044}
 
-.msg.me{
-  margin-left:auto;
-  background:#235044;
+/* MEETING */
+.meeting-box{
+  background:#0d1c39;
+  border:1px solid #ffffff20;
+  border-radius:25px;
+  padding:20px
 }
-
-.msg small{
-  display:block;
-  opacity:.55;
-  font-size:11px;
-  margin-top:5px;
-}
-
-.profile{
-  display:flex;
-  align-items:center;
-  gap:15px;
-  padding:15px;
+.meeting-status{
   background:#07152d;
-  border-radius:18px;
+  padding:12px;
+  border-radius:12px;
   margin-bottom:15px;
+  color:#42e8ad
 }
-
-.avatar{
-  width:55px;
-  height:55px;
-  border-radius:50%;
-  background:#ffd77a;
-  color:#111827;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-size:25px;
-  font-weight:bold;
+.video-grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:12px
 }
-
-.room-code{
-  font-size:40px;
-  color:#ffd77a;
-  font-weight:900;
-  letter-spacing:8px;
-  text-align:center;
-  padding:20px;
-  background:#07152d;
+.video-card{
+  position:relative;
+  background:#000;
   border-radius:18px;
+  overflow:hidden;
+  min-height:220px
 }
-
-.library-item{
-  padding:18px;
-  background:#07152d;
-  border-radius:16px;
-  margin-top:12px;
+.video-card video{
+  width:100%;
+  height:100%;
+  min-height:220px;
+  object-fit:cover;
+  display:block
 }
-
-.library-item strong{
-  font-size:20px;
-}
-
-.badge{
-  display:inline-block;
+.video-name{
+  position:absolute;
+  bottom:8px;
+  left:8px;
+  background:#000b;
   padding:6px 10px;
-  border-radius:20px;
-  background:#183b38;
-  color:#42e8ad;
-  font-size:12px;
-  margin-top:8px;
+  border-radius:10px;
+  font-size:13px
 }
-
-.notice{
-  padding:14px;
-  background:#18304f;
-  border-radius:15px;
-  color:#dbe7f7;
-  line-height:1.6;
-  margin-bottom:15px;
+.room-code{
+  font-size:22px;
+  color:#ffd77a;
+  font-weight:bold;
+  word-break:break-all
 }
-
 footer{
   text-align:center;
   color:#71819d;
-  padding:35px 15px;
-  line-height:1.8;
+  padding:30px
 }
-
 @media(max-width:700px){
-
-  .top{
-    align-items:center;
-  }
-
-  .brand h1{
-    font-size:23px;
-    letter-spacing:4px;
-  }
-
-  .logo{
-    width:58px;
-    height:58px;
-    font-size:34px;
-  }
-
-  .online{
-    font-size:13px;
-  }
-
-  .hero{
-    padding:30px 22px;
-  }
-
-  .hero h2{
-    font-size:43px;
-  }
-
-  .stats,
-  .grid{
-    grid-template-columns:1fr;
-  }
-
-  .section{
-    font-size:32px;
-  }
+  .brand h1{font-size:21px}
+  .logo{width:52px;height:52px}
+  .online{font-size:12px}
+  .grid,.video-grid{grid-template-columns:1fr}
+  .hero h2{font-size:42px}
 }
 </style>
 </head>
@@ -422,452 +194,127 @@ footer{
 <body>
 
 <header>
-
 <div class="top">
-
 <div class="brand">
 <div class="logo">N</div>
-
 <h1>NIVO 155</h1>
 </div>
-
-<div class="online">
-● ONLINE
-</div>
-
+<div class="online">● ONLINE</div>
 </div>
 
 <nav>
-
-<button class="nav active"
-onclick="showPage('home',this)">
-Home
-</button>
-
-<button class="nav"
-onclick="showPage('social',this)">
-Social
-</button>
-
-<button class="nav"
-onclick="showPage('translate',this)">
-Translate
-</button>
-
-<button class="nav"
-onclick="showPage('classroom',this)">
-Classroom
-</button>
-
-<button class="nav"
-onclick="showPage('library',this)">
-Library
-</button>
-
-<button class="nav"
-onclick="showPage('profile',this)">
-Profile
-</button>
-
+<button class="nav active" onclick="showPage('home',this)">Home</button>
+<button class="nav" onclick="showPage('social',this)">Social</button>
+<button class="nav" onclick="showPage('meeting',this)">🎥 Meeting</button>
+<button class="nav" onclick="showPage('translate',this)">Translate</button>
+<button class="nav" onclick="showPage('classroom',this)">Classroom</button>
+<button class="nav" onclick="showPage('library',this)">Library</button>
 </nav>
-
 </header>
-
 
 <main>
 
-
 <!-- HOME -->
-
 <section id="home" class="panel active">
 
 <div class="hero">
+<div class="eyebrow">CONNECT • TRANSLATE • LEARN • SHARE</div>
 
-<div class="eyebrow">
-CONNECT • TRANSLATE • LEARN • SHARE
-</div>
-
-<h2>
-ভাষার বাধা ছাড়াই পুরো বিশ্ব।
-</h2>
+<h2>ভাষার বাধা ছাড়াই পুরো বিশ্ব।</h2>
 
 <p>
-NIVO 155 হলো এমন একটি প্ল্যাটফর্ম
-যেখানে মানুষ বিভিন্ন ভাষায় যোগাযোগ,
-অনুবাদ, শিক্ষা এবং জ্ঞান শেয়ার করতে পারবে।
+NIVO 155 — যোগাযোগ, শিক্ষা ও global community
+এক জায়গায় আনার একটি platform।
 </p>
 
 <div class="actions">
-
-<button class="primary"
-onclick="showPageByName('translate')">
-🌐 Translation
+<button class="primary" onclick="showPageByName('meeting')">
+🎥 Start Meeting
 </button>
 
-<button class="secondary"
-onclick="showPageByName('social')">
+<button class="secondary" onclick="showPageByName('social')">
 💬 Social
 </button>
-
 </div>
 
-<div class="globe">
-🌍
+<div class="globe">🌍</div>
 </div>
 
-</div>
-
-
-<div class="stats">
-
-<div class="stat">
-<div class="num">155</div>
-<div class="label">Target Languages</div>
-</div>
-
-<div class="stat">
-<div class="num">100+</div>
-<div class="label">Class Participants</div>
-</div>
-
-<div class="stat">
-<div class="num">1</div>
-<div class="label">Global Platform</div>
-</div>
-
-</div>
-
-
-<h2 class="section">
-NIVO-এর মূল শক্তি
-</h2>
-
-
-<div class="grid">
-
-<div class="card"
-onclick="showPageByName('social')">
-
+<div class="grid" style="margin-top:20px">
+<div class="card">
 <div class="icon">💬</div>
-
 <h3>Global Social</h3>
-
-<p>
-বিশ্বের বিভিন্ন ভাষাভাষী মানুষের
-সাথে যোগাযোগের ব্যবস্থা।
-</p>
-
+<p>মানুষের সঙ্গে online communication।</p>
 </div>
 
+<div class="card">
+<div class="icon">🎥</div>
+<h3>Live Meeting</h3>
+<p>Camera ও microphone দিয়ে real-time meeting test।</p>
+</div>
 
-<div class="card"
-onclick="showPageByName('translate')">
-
+<div class="card">
 <div class="icon">🌐</div>
-
-<h3>Live Translation</h3>
-
-<p>
-Text এবং Voice translation-এর
-সুবিধা।
-</p>
-
+<h3>Translation</h3>
+<p>ভবিষ্যতে multilingual communication যুক্ত হবে।</p>
 </div>
 
-
-<div class="card"
-onclick="showPageByName('classroom')">
-
-<div class="icon">🎓</div>
-
-<h3>Global Classroom</h3>
-
-<p>
-বিভিন্ন ভাষার শিক্ষার্থীদের
-একই learning environment।
-</p>
-
-</div>
-
-
-<div class="card"
-onclick="showPageByName('library')">
-
+<div class="card">
 <div class="icon">📚</div>
-
 <h3>World Library</h3>
-
-<p>
-শিক্ষামূলক resource সংরক্ষণ ও
-ব্যবহারের ব্যবস্থা।
-</p>
-
+<p>শিক্ষামূলক content-এর জন্য future-ready platform।</p>
 </div>
-
 </div>
 
 </section>
-
-
 
 <!-- SOCIAL -->
-
 <section id="social" class="panel">
-
-<h2 class="section">
-💬 Global Social
-</h2>
+<h2 class="section">💬 Global Social</h2>
 
 <div class="card">
-
-<div class="profile">
-
-<div class="avatar"
-id="chatAvatar">
-N
+<div id="chat" class="chat">
+<div class="msg">NIVO: স্বাগতম! 🌍</div>
 </div>
 
-<div>
-<strong id="chatUserName">
-NIVO User
-</strong>
-
-<br>
-
-<span style="color:#42e8ad">
-● Online
-</span>
-
-</div>
-
-</div>
-
-
-<div class="chat"
-id="chat">
-
-<div class="msg">
-<strong>NIVO</strong>
-
-<br>
-
-স্বাগতম! 🌍
-
-<small>
-আজই আপনার Global Community তৈরি করুন।
-</small>
-
-</div>
-
-</div>
-
-
-<input
-id="chatInput"
+<input id="chatInput"
 placeholder="আপনার মেসেজ লিখুন..."
-onkeydown="if(event.key==='Enter')sendMessage()"
->
+onkeydown="if(event.key==='Enter')sendMessage()">
 
-<div class="actions">
-
-<button class="primary"
-onclick="sendMessage()">
-Send Message
-</button>
-
-<button class="secondary"
-onclick="clearChat()">
-Clear
-</button>
-
+<button class="primary" onclick="sendMessage()">Send</button>
 </div>
-
-</div>
-
 </section>
 
+<!-- MEETING -->
+<section id="meeting" class="panel">
 
+<h2 class="section">🎥 NIVO Meeting</h2>
 
-<!-- TRANSLATE -->
-
-<section id="translate" class="panel">
-
-<h2 class="section">
-🌐 Live Translation
-</h2>
-
-<div class="card">
+<div class="meeting-box">
 
 <div class="notice">
-ইন্টারনেট থাকলে NIVO Translation Service ব্যবহার করবে।
-Voice input এবং Speak সুবিধাও চালু আছে।
+<strong>Real Meeting Test</strong><br>
+একজন room তৈরি করবে। অন্যরা room ID দিয়ে join করবে।
+Camera ও microphone permission চাইলে Allow দিতে হবে।
 </div>
 
-
-<select id="language">
-
-<option value="bn|en">
-বাংলা → English
-</option>
-
-<option value="en|bn">
-English → বাংলা
-</option>
-
-<option value="en|es">
-English → Español
-</option>
-
-<option value="en|fr">
-English → Français
-</option>
-
-<option value="en|de">
-English → Deutsch
-</option>
-
-<option value="en|ar">
-English → العربية
-</option>
-
-<option value="en|hi">
-English → हिन्दी
-</option>
-
-<option value="bn|hi">
-বাংলা → हिन्दी
-</option>
-
-<option value="bn|ar">
-বাংলা → العربية
-</option>
-
-<option value="en|zh">
-English → 中文
-</option>
-
-</select>
-
-
-<textarea
-id="sourceText"
-placeholder="এখানে লিখুন..."
-></textarea>
-
+<input id="nameInput" placeholder="আপনার নাম">
 
 <div class="actions">
-
-<button class="primary"
-onclick="translateText()">
-🌐 Translate
+<button class="primary" onclick="createMeeting()">
+＋ Create Meeting
 </button>
+
+<button class="secondary" onclick="startCamera()">
+📷 Camera ON
+</button>
+</div>
+
+<div id="roomArea" style="display:none;margin-top:15px">
+
+<div>Room ID:</div>
+
+<div class="room-code" id="roomIdText"></div>
 
 <button class="secondary"
-onclick="startVoice()">
-🎙️ Voice
-</button>
-
-<button class="secondary"
-onclick="speakTranslation()">
-🔊 Speak
-</button>
-
-</div>
-
-
-<div id="translationResult"
-class="result">
-অনুবাদ এখানে দেখাবে।
-</div>
-
-</div>
-
-</section>
-
-
-
-<!-- CLASSROOM -->
-
-<section id="classroom" class="panel">
-
-<h2 class="section">
-🎓 Global Classroom
-</h2>
-
-<div class="grid">
-
-<div class="card">
-
-<div class="icon">
-👨‍🏫
-</div>
-
-<h3>
-Create Classroom
-</h3>
-
-<p>
-একটি নতুন classroom তৈরি করুন।
-</p>
-
-<input
-id="teacherName"
-placeholder="Teacher name"
->
-
-<button class="primary"
-onclick="createRoom()">
-Create Room
-</button>
-
-<div id="roomResult"
-style="margin-top:15px">
-</div>
-
-</div>
-
-
-<div class="card">
-
-<div class="icon">
-🌍
-</div>
-
-<h3>
-Join Classroom
-</h3>
-
-<p>
-Room code দিয়ে classroom-এ join করুন।
-</p>
-
-<input
-id="joinCode"
-placeholder="Room code"
->
-
-<input
-id="studentName"
-placeholder="Student name"
->
-
-<button class="secondary"
-onclick="joinRoom()">
-Join Class
-</button>
-
-<div id="joinResult"
-style="margin-top:15px">
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-
-
-<!-- LIBRARY -->
-
-<section id="library" class="panel
+style="margin-top:10px"
