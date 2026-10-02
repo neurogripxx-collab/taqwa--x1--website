@@ -318,3 +318,599 @@ Camera ও microphone permission চাইলে Allow দিতে হবে।
 
 <button class="secondary"
 style="margin-top:10px"
+onclick="copyRoomLink()">
+🔗 Copy Meeting Link
+</button>
+
+<p id="shareText"></p>
+
+<hr style="border-color:#ffffff20;margin:20px 0">
+
+<input id="joinId" placeholder="অন্যের Room ID লিখুন">
+
+<button class="primary" onclick="joinMeeting()">
+🚀 Join Meeting
+</button>
+
+</div>
+
+<div class="meeting-status" id="meetingStatus">
+Meeting এখনো শুরু হয়নি।
+</div>
+
+<div class="video-grid" id="videoGrid"></div>
+
+<div class="actions">
+
+<button class="secondary" onclick="toggleMic()">
+🎙️ Mic
+</button>
+
+<button class="secondary" onclick="toggleCamera()">
+📷 Camera
+</button>
+
+<button class="danger" onclick="leaveMeeting()">
+☎ Leave
+</button>
+
+</div>
+
+</div>
+</section>
+
+<!-- TRANSLATE -->
+<section id="translate" class="panel">
+<h2 class="section">🌐 Translation</h2>
+
+<div class="card">
+<select id="language">
+<option value="bn|en">বাংলা → English</option>
+<option value="en|bn">English → বাংলা</option>
+<option value="en|es">English → Español</option>
+<option value="en|ar">English → العربية</option>
+<option value="en|hi">English → हिन्दी</option>
+</select>
+
+<textarea id="sourceText"
+placeholder="এখানে লিখুন..."></textarea>
+
+<button class="primary" onclick="translateText()">
+🌐 Translate
+</button>
+
+<div class="result" id="translationResult">
+অনুবাদ এখানে দেখাবে।
+</div>
+</div>
+</section>
+
+<!-- CLASSROOM -->
+<section id="classroom" class="panel">
+<h2 class="section">🎓 Global Classroom</h2>
+
+<div class="grid">
+
+<div class="card">
+<div class="icon">👨‍🏫</div>
+<h3>Create Classroom</h3>
+<p>শিক্ষকের জন্য classroom ধারণা।</p>
+<button class="primary"
+onclick="showPageByName('meeting')">
+Create Meeting Room
+</button>
+</div>
+
+<div class="card">
+<div class="icon">🌍</div>
+<h3>Join Classroom</h3>
+<p>Room ID ব্যবহার করে meeting-এ যোগ দিন।</p>
+<button class="secondary"
+onclick="showPageByName('meeting')">
+Join Room
+</button>
+</div>
+
+</div>
+</section>
+
+<!-- LIBRARY -->
+<section id="library" class="panel">
+<h2 class="section">📚 World Library</h2>
+
+<div class="card">
+<div class="icon">📚</div>
+<h3>Global Knowledge</h3>
+
+<p>
+NIVO Library ভবিষ্যতে open, public-domain
+ও properly licensed educational resources
+এক জায়গায় আনবে।
+</p>
+
+<div class="meeting-status">
+Library module এখন development stage-এ।
+</div>
+</div>
+</section>
+
+</main>
+
+<footer>
+NIVO 155 © 2026
+<br>
+The World Without Language Barriers
+</footer>
+
+<script>
+
+/* =========================
+PAGE SYSTEM
+========================= */
+
+function showPage(page,button){
+
+document.querySelectorAll(".panel")
+.forEach(p=>p.classList.remove("active"));
+
+const target=document.getElementById(page);
+
+if(target){
+target.classList.add("active");
+}
+
+document.querySelectorAll(".nav")
+.forEach(n=>n.classList.remove("active"));
+
+if(button){
+button.classList.add("active");
+}
+
+window.scrollTo({
+top:0,
+behavior:"smooth"
+});
+}
+
+function showPageByName(page){
+
+const button=[...document.querySelectorAll(".nav")]
+.find(b=>b.textContent.toLowerCase().includes(page));
+
+showPage(page,button);
+}
+
+
+/* =========================
+SOCIAL CHAT
+========================= */
+
+function sendMessage(){
+
+const input=document.getElementById("chatInput");
+const text=input.value.trim();
+
+if(!text)return;
+
+const chat=document.getElementById("chat");
+
+const msg=document.createElement("div");
+
+msg.className="msg me";
+msg.textContent=text;
+
+chat.appendChild(msg);
+
+input.value="";
+chat.scrollTop=chat.scrollHeight;
+}
+
+
+/* =========================
+DEMO TRANSLATION
+========================= */
+
+function translateText(){
+
+const text=document
+.getElementById("sourceText")
+.value.trim();
+
+const result=document
+.getElementById("translationResult");
+
+if(!text){
+result.textContent="আগে কিছু লিখুন।";
+return;
+}
+
+const dictionary={
+"হ্যালো":"Hello",
+"কেমন আছেন":"How are you?",
+"আমি ভালো আছি":"I am fine",
+"ধন্যবাদ":"Thank you",
+"শুভ সকাল":"Good morning",
+"hello":"হ্যালো",
+"how are you":"কেমন আছেন?",
+"thank you":"ধন্যবাদ"
+};
+
+const key=text.toLowerCase();
+
+result.textContent=
+dictionary[key] ||
+"Translation engine এখানে পরবর্তী ধাপে API-এর মাধ্যমে যুক্ত হবে।";
+}
+
+
+/* =========================
+NIVO MEETING
+PeerJS + WebRTC
+========================= */
+
+let peer=null;
+let localStream=null;
+let currentRoom=null;
+
+const calls={};
+const connections={};
+
+async function startCamera(){
+
+try{
+
+if(localStream)return localStream;
+
+localStream=await navigator.mediaDevices.getUserMedia({
+video:true,
+audio:true
+});
+
+addVideo(
+localStream,
+"আপনি",
+"local-video"
+);
+
+document.getElementById("meetingStatus").textContent=
+"Camera ও microphone চালু হয়েছে।";
+
+return localStream;
+
+}catch(error){
+
+document.getElementById("meetingStatus").textContent=
+"Camera/Microphone permission পাওয়া যায়নি। HTTPS site ব্যবহার করুন।";
+
+console.error(error);
+return null;
+}
+}
+
+
+function createMeeting(){
+
+const name=
+document.getElementById("nameInput").value.trim()
+||"NIVO User";
+
+startCamera().then(()=>{
+
+peer=new Peer();
+
+peer.on("open",id=>{
+
+currentRoom=id;
+
+document.getElementById("roomArea").style.display="block";
+
+document.getElementById("roomIdText").textContent=id;
+
+document.getElementById("shareText").textContent=
+"এই Room ID বন্ধুকে পাঠিয়ে Join করতে বলুন।";
+
+document.getElementById("meetingStatus").textContent=
+"Meeting room তৈরি হয়েছে।";
+
+});
+
+peer.on("call",call=>{
+
+call.answer(localStream);
+
+call.on("stream",stream=>{
+
+addVideo(stream,call.peer,"remote-"+call.peer);
+
+});
+
+calls[call.peer]=call;
+
+});
+
+peer.on("connection",conn=>{
+
+connections[conn.peer]=conn;
+
+conn.on("data",data=>{
+
+if(data.type==="name"){
+
+document.getElementById("meetingStatus").textContent=
+data.name+" meeting-এ যোগ দিয়েছে।";
+
+}
+
+});
+
+});
+
+peer.on("error",err=>{
+
+console.error(err);
+
+document.getElementById("meetingStatus").textContent=
+"Meeting connection error: "+err.type;
+
+});
+
+});
+
+}
+
+
+async function joinMeeting(){
+
+const id=
+document.getElementById("joinId")
+.value.trim();
+
+if(!id){
+
+alert("Room ID দিন।");
+return;
+}
+
+const stream=await startCamera();
+
+if(!stream)return;
+
+peer=new Peer();
+
+peer.on("open",myId=>{
+
+currentRoom=id;
+
+const call=peer.call(id,stream,{
+metadata:{
+name:
+document.getElementById("nameInput").value
+||"NIVO User"
+}
+});
+
+call.on("stream",remoteStream=>{
+
+addVideo(remoteStream,id,"remote-"+id);
+
+});
+
+calls[id]=call;
+
+const conn=peer.connect(id);
+
+conn.on("open",()=>{
+
+conn.send({
+type:"name",
+name:
+document.getElementById("nameInput").value
+||"NIVO User"
+});
+
+});
+
+connections[id]=conn;
+
+document.getElementById("meetingStatus").textContent=
+"Meeting-এ join করার চেষ্টা চলছে...";
+
+});
+
+peer.on("call",call=>{
+
+call.answer(stream);
+
+call.on("stream",remoteStream=>{
+
+addVideo(remoteStream,call.peer,"remote-"+call.peer);
+
+});
+
+calls[call.peer]=call;
+
+});
+
+peer.on("error",err=>{
+
+console.error(err);
+
+document.getElementById("meetingStatus").textContent=
+"Join failed: "+err.type;
+
+});
+
+}
+
+
+function addVideo(stream,name,id){
+
+if(document.getElementById(id))return;
+
+const card=document.createElement("div");
+
+card.className="video-card";
+card.id=id;
+
+const video=document.createElement("video");
+
+video.autoplay=true;
+video.playsInline=true;
+
+if(id==="local-video"){
+video.muted=true;
+}
+
+video.srcObject=stream;
+
+const label=document.createElement("div");
+
+label.className="video-name";
+label.textContent=name;
+
+card.appendChild(video);
+card.appendChild(label);
+
+document.getElementById("videoGrid")
+.appendChild(card);
+}
+
+
+function toggleMic(){
+
+if(!localStream)return;
+
+const tracks=localStream.getAudioTracks();
+
+tracks.forEach(track=>{
+track.enabled=!track.enabled;
+});
+
+document.getElementById("meetingStatus").textContent=
+tracks[0].enabled
+?"Microphone ON"
+:"Microphone OFF";
+}
+
+
+function toggleCamera(){
+
+if(!localStream)return;
+
+const tracks=localStream.getVideoTracks();
+
+tracks.forEach(track=>{
+track.enabled=!track.enabled;
+});
+
+document.getElementById("meetingStatus").textContent=
+tracks[0].enabled
+?"Camera ON"
+:"Camera OFF";
+}
+
+
+function copyRoomLink(){
+
+if(!currentRoom)return;
+
+const link=
+location.origin+
+location.pathname+
+"?room="+encodeURIComponent(currentRoom);
+
+navigator.clipboard.writeText(link)
+.then(()=>{
+
+document.getElementById("shareText").textContent=
+"Meeting link copied! বন্ধুদের পাঠাও।";
+
+})
+.catch(()=>{
+
+document.getElementById("shareText").textContent=
+"Room ID: "+currentRoom;
+
+});
+
+}
+
+
+function leaveMeeting(){
+
+Object.values(calls)
+.forEach(call=>{
+
+try{
+call.close();
+}catch(e){}
+
+});
+
+Object.values(connections)
+.forEach(conn=>{
+
+try{
+conn.close();
+}catch(e){}
+
+});
+
+if(localStream){
+
+localStream.getTracks()
+.forEach(track=>track.stop());
+
+}
+
+if(peer){
+
+try{
+peer.destroy();
+}catch(e){}
+
+}
+
+Object.keys(calls)
+.forEach(k=>delete calls[k]);
+
+Object.keys(connections)
+.forEach(k=>delete connections[k]);
+
+localStream=null;
+peer=null;
+currentRoom=null;
+
+document.getElementById("videoGrid").innerHTML="";
+
+document.getElementById("roomArea").style.display="none";
+
+document.getElementById("meetingStatus").textContent=
+"Meeting শেষ হয়েছে।";
+
+}
+
+
+/* AUTO JOIN FROM LINK */
+
+window.addEventListener("load",()=>{
+
+const params=
+new URLSearchParams(location.search);
+
+const room=params.get("room");
+
+if(room){
+
+showPageByName("meeting");
+
+document.getElementById("joinId").value=room;
+
+}
+
+});
+
+</script>
+
+</body>
+</html>
